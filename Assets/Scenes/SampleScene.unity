@@ -611,7 +611,7 @@ MonoBehaviour:
   wlakSpeed: 5
   sprintSpeed: 8
   groundDrag: 5
-  jumpForce: 1
+  jumpForce: 6
   jumpCooldown: 1
   airMultiplier: 0.4
   readyToJump: 1
