@@ -6,17 +6,20 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     
-    public float moveSpeed;
+    private float moveSpeed;
+    public float wlakSpeed;
+    public float sprintSpeed;
 
     public float groundDrag;
 
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    public bool readyToJump = true;
 
     [Header("keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -31,6 +34,15 @@ public class Movement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    public MovementState state;
+
+    public enum MovementState
+    {
+        walking,
+        spritning,
+        air,
+    }
 
     //Fryser rotationen så spilleren ikke falder og deffinere Rigidbody  
     private void Start()
@@ -48,6 +60,7 @@ public class Movement : MonoBehaviour
         //Kalder movement funktionen 
         MyInput();
         SpeedControl();
+        statHandler();
 
         //Laver drag så man ikke glider på jorden
         if (grounded)
@@ -73,17 +86,43 @@ public class Movement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+
         //Tjækker for om der trykket på hop kanppen
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
 
+            Jump();
 
             readyToJump = false;
 
-            Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+    }
+
+    private void statHandler()
+    {
+        //Sprint mode
+        if (grounded && Input.GetKey(sprintKey)) 
+        {
+            state = MovementState.spritning;
+            moveSpeed = sprintSpeed;
+        }
+
+        // Wlak mode
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = wlakSpeed;
+            
+        }
+
+        //Air mode
+        else 
+        {
+            state = MovementState.air;
+        }
+
     }
 
     private void MovePlayer () 
@@ -123,11 +162,14 @@ public class Movement : MonoBehaviour
 
         //hop funktionen 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        
     }
 
     //Sørge for man kan hoppe igen 
     private void ResetJump()
     {
-        readyToJump = true;   
+        readyToJump = true;
+        
     }
 }
