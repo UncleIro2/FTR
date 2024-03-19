@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -31,6 +32,11 @@ public class Movement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
+
+    [Header("Slope Handling")]
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+    private bool exitingSlope;
     
     public Transform orientation;
 
@@ -158,38 +164,67 @@ public class Movement : MonoBehaviour
 
     }
 
+    //Gøre så man kan bevæge spilleren 
     private void MovePlayer () 
     { 
-        //Gøre så man kan bevæge spilleren 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        //På slope 
+        if(OnSloop() && !exitingSlope)
+        {
+            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
 
+            //sørge man ikke bouncer når man går op ad slopes 
+            if (rb.velocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+        }
+
+        //På jorden
         if (grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
 
+        //I luften 
         else if (!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
+
+        //Slukker for gravty så man ikke glider ned fra slopes
+        rb.useGravity = !OnSloop();
     }
 
     //Sørge for at hastigheden af spileren er det man sætter den til 
     private void SpeedControl () 
     { 
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        if (flatVel.magnitude > moveSpeed)
+        //Sørge at man går op ad slopes med samme hastighed som man går på jorden.  
+        if (OnSloop() && !exitingSlope)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            if (rb.velocity.magnitude > moveSpeed)
+                rb.velocity = rb.velocity.normalized * moveSpeed;
         }
+
+
+        //Sørge for at det er den samme hastighed på jorden og i luften
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            if (flatVel.magnitude > moveSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+
+        } 
     
     }
 
     private void Jump()
     {
+        exitingSlope = true;
+
         //Reset y hastigheden
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -203,6 +238,29 @@ public class Movement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+
+        exitingSlope = false;
         
     }
+
+    //Laver raycast når man er på slope da der en vinkel
+    private bool OnSloop()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit .normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    //Regner hastighed ud når man er på slope  
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+  
+       
 }

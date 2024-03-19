@@ -17,5 +17,14 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene("Guidlines");
     }
+    public void LoadGetReady()
+    {
+        SceneManager.LoadScene("GetReady");
+    }
+    public void LoadEnterCode()
+    {
+        SceneManager.LoadScene("EnterCode");
+    }
+
 }
 
