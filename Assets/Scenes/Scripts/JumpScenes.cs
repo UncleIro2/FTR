@@ -29,6 +29,13 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene("Difficulty");
     }
-
+    public void LoadStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
+    public void LoadVestskovenConfirmed()
+    {
+        SceneManager.LoadScene("VestskovenConfirmed");
+    }
 }
 

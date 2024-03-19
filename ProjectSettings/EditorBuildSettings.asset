@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI/Guidlines.unity
     guid: 5db4a1dea9218d643a1abf4abe587b0a
   - enabled: 1
@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/Difficulty.unity
     guid: 342c88bce45d1ce4fb484273d0f06dd3
+  - enabled: 1
+    path: Assets/Scenes/UI/VestskovenConfirmed.unity
+    guid: a6074d6350bccc04ca6e8b984d0b8106
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
