@@ -25,6 +25,10 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene("EnterCode");
     }
+    public void LoadDifficulty()
+    {
+        SceneManager.LoadScene("Difficulty");
+    }
 
 }
 
