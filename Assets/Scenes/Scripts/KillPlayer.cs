@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-   
+
     public int Respawn;
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(Respawn);
-        }
+        Invoke("killPlayer", 0.5f);
+
     }
 
- 
+    void killPlayer()
+    {
+        
+            SceneManager.LoadScene("SampleScene");
+    }
 }
 
