@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Movement")]
-    
+    [Header("Movement")]   
     private float moveSpeed;
     public float wlakSpeed;
     public float sprintSpeed;
 
     public float groundDrag;
 
+    [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    public bool readyToJump = true;
+    public bool readyToJump;
+
+    [Header("Crouching")]
+    public float crouchSpeed;
+    public float crouchYScale;
+    private float startYScale;
 
     [Header("keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -41,6 +47,7 @@ public class Movement : MonoBehaviour
     {
         walking,
         spritning,
+        crouching,
         air,
     }
 
@@ -50,6 +57,9 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        readyToJump = true;
+
+        startYScale = transform.localScale.y;
     }
 
     private void Update()
@@ -98,10 +108,33 @@ public class Movement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        //Start Crouch
+        if(Input.GetKeyDown(crouchKey)) 
+        { 
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+
+        }
+
+        //Stop Crouch 
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
     }
 
     private void statHandler()
     {
+        //Crouch mode 
+        if (Input.GetKeyUp(crouchKey))
+        {
+            state = MovementState.crouching;
+            moveSpeed = crouchSpeed;
+
+        }
+
+
         //Sprint mode
         if (grounded && Input.GetKey(sprintKey)) 
         {
