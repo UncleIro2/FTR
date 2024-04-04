@@ -23,5 +23,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/VestskovenConfirmed.unity
     guid: a6074d6350bccc04ca6e8b984d0b8106
+  - enabled: 1
+    path: Assets/Scenes/UI/PlayPublic.unity
+    guid: 404bc5cfaad7cdb46b1930bb4d337163
+  - enabled: 1
+    path: Assets/Scenes/UI/CommingWater.unity
+    guid: a1fa3e17a18d115468ccaacde5f7f58c
+  - enabled: 1
+    path: Assets/Scenes/UI/CommingTornado.unity
+    guid: 823189b91ee797c47a20505a68f6a4cc
+  - enabled: 1
+    path: Assets/Scenes/UI/CommingEarth.unity
+    guid: 4ca634533ac5e6d40b3d6ac81e096c83
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

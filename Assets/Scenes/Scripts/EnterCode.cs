@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EnterCode : MonoBehaviour
+public class TextInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public InputField inputField;
+
+    private void Start()
     {
-        
+        // Add listener to detect changes in input field
+        inputField.onValueChanged.AddListener(HandleInputValueChanged);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleInputValueChanged(string text)
     {
-        
+        Debug.Log("Input changed: " + text);
     }
 }
+

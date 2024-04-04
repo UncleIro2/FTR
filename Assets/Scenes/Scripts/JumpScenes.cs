@@ -37,5 +37,21 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene("VestskovenConfirmed");
     }
+    public void LoadPlayPublic()
+    {
+        SceneManager.LoadScene("PlayPublic");
+    }
+    public void LoadCommingWater()
+    {
+        SceneManager.LoadScene("CommingWater");
+    }
+    public void LoadCommingEarth()
+    {
+        SceneManager.LoadScene("CommingEarth");
+    }
+    public void LoadCommingTornado()
+    {
+        SceneManager.LoadScene("CommingTornado");
+    }
 }
 
