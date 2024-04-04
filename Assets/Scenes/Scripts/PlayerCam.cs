@@ -19,7 +19,7 @@ public class PlayerCam : MonoBehaviour
     {
         //Sørge for at musen altid er i midten af skærmen og at den er  usynlig  
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     private void Update()
