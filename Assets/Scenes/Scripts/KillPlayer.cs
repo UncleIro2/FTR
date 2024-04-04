@@ -9,7 +9,7 @@ public class KillPlayer : MonoBehaviour
     public int Respawn;
     void OnTriggerEnter(Collider other)
     {
-        Invoke("killPlayer", 0.5f);
+        Invoke("killPlayer", 0.2f);
 
     }
 

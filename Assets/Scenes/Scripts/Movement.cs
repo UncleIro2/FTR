@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class Movement : MonoBehaviour
     private float moveSpeed;
     public float wlakSpeed;
     public float sprintSpeed;
-
     public float groundDrag;
+    float horizontalInput;
+    float verticalInput;
+    Vector3 moveDirection;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -37,17 +40,21 @@ public class Movement : MonoBehaviour
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
-    
+
+    [Header("Stamina")]
+    public Image staminaBar;
+    public float stamina;
+    public float maxStamina;
+    public float runCost;
+    public float charegeRate;
+
+    private Coroutine recharge;
+
+    [Header(".")]
     public Transform orientation;
-
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 moveDirection;
+    public MovementState state;
 
     Rigidbody rb;
-
-    public MovementState state;
 
     public enum MovementState
     {
@@ -88,6 +95,8 @@ public class Movement : MonoBehaviour
         {
             rb.drag = 0;
         }
+
+    
     }
 
     private void FixedUpdate()
@@ -111,12 +120,18 @@ public class Movement : MonoBehaviour
 
             readyToJump = false;
 
-
+            
             Invoke(nameof(ResetJump), jumpCooldown);
+               
+           
+
+
         }
 
+       
+
         //Start Crouch
-        if(Input.GetKeyDown(crouchKey)) 
+        if (Input.GetKeyDown(crouchKey)) 
         { 
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
@@ -146,6 +161,23 @@ public class Movement : MonoBehaviour
         {
             state = MovementState.spritning;
             moveSpeed = sprintSpeed;
+
+            stamina -= runCost + Time.deltaTime;
+            if (stamina < 0) stamina = 0;
+            staminaBar.fillAmount = stamina / maxStamina;
+
+            if(stamina == 0) 
+            {
+                state = MovementState.walking;
+                moveSpeed = wlakSpeed;
+
+            }
+
+            if (recharge != null) StopCoroutine(recharge);
+            recharge = StartCoroutine(rechargeStamina());
+           
+
+
         }
 
         // Wlak mode
@@ -160,6 +192,14 @@ public class Movement : MonoBehaviour
         else 
         {
             state = MovementState.air;
+
+            stamina -= runCost + Time.deltaTime;
+            if (stamina < 0) stamina = 0;
+            staminaBar.fillAmount = stamina / maxStamina;
+
+
+            if (recharge != null) StopCoroutine(recharge);
+            recharge = StartCoroutine(rechargeStamina());
         }
 
     }
@@ -197,7 +237,7 @@ public class Movement : MonoBehaviour
 
     //Sørge for at hastigheden af spileren er det man sætter den til 
     private void SpeedControl () 
-    { 
+    {
         //Sørge at man går op ad slopes med samme hastighed som man går på jorden.  
         if (OnSloop() && !exitingSlope)
         {
@@ -223,13 +263,17 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        exitingSlope = true;
+        if(stamina > 0f)
+        {
+            exitingSlope = true;
 
-        //Reset y hastigheden
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            //Reset y hastigheden
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        //hop funktionen 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            //hop funktionen 
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        }
+        
 
         
     }
@@ -261,6 +305,17 @@ public class Movement : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
-  
+  private IEnumerator rechargeStamina() 
+    { 
+        yield return new WaitForSeconds(1f);
+        while(stamina < maxStamina) 
+        {
+            stamina += charegeRate / 10f;
+            if(stamina > maxStamina) stamina = maxStamina;
+            staminaBar.fillAmount = stamina / maxStamina;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+    }
        
 }
