@@ -203,6 +203,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1107626448}
+        m_TargetAssemblyTypeName: SoundMananger, Assembly-CSharp
+        m_MethodName: StopAllSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1107626447}
         m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
         m_MethodName: LoadStart
@@ -679,6 +691,7 @@ GameObject:
   - component: {fileID: 1107626445}
   - component: {fileID: 1107626444}
   - component: {fileID: 1107626447}
+  - component: {fileID: 1107626448}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -748,6 +761,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74075108a581b54c862fd7cae999c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1107626448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107626443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f7ff39855724449928d71b14fb3ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundLib: []
 --- !u!1 &1911993235
 GameObject:
   m_ObjectHideFlags: 0
