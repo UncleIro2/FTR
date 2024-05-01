@@ -7,11 +7,11 @@ using UnityEngine;
 public enum SoundEnum
 {
     fire = 0,
-    klik = 1,
-    correct = 2,
-    storm = 3,
-    start = 4, 
-    earthquake = 5,
+    correct = 1,
+    storm = 2,
+    earthquake = 3,
+    bip = 4,
+    
 }
 
 //SoundMananger.instance.PlaySound(SoundEnum.fire);
