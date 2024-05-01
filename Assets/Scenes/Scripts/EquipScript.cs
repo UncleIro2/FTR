@@ -10,10 +10,14 @@ public class EquipScript : MonoBehaviour
     public float range = 2f;
     public float open = 100f;
 
+    public Rigidbody rb;  
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        Brændslukker.GetComponent<Rigidbody>().isKinematic = true;
+        rb = Brændslukker.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,44 +26,32 @@ public class EquipScript : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             EquipObject();
-            Shoot();
+            //rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
         if (Input.GetKeyDown("q"))
         {
             UnequipObject();
-
-
-        }
-    }
-
-    void Shoot ()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                EquipObject();
-            }
+            
         }
     }
 
     void UnequipObject()
     {
+        rb.constraints = RigidbodyConstraints.None;
         PlayerTransform.DetachChildren();
-        Brændslukker.transform.eulerAngles = new Vector3(Brændslukker.transform.eulerAngles.x, Brændslukker.transform.eulerAngles.y, Brændslukker.transform.eulerAngles.z - 45);
-        Brændslukker.GetComponent<Rigidbody>().isKinematic = false;
+        Brændslukker.transform.eulerAngles = new Vector3(0f,180f,0f);
     }
 
     void EquipObject()
     {
-        Brændslukker.GetComponent<Rigidbody>().isKinematic = true;
-        Brændslukker.transform.position = PlayerTransform.transform.position;
-        Brændslukker.transform.rotation = PlayerTransform.transform.rotation;
-        Brændslukker.transform.SetParent(PlayerTransform);
+
+        if((Brændslukker.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f,1f,1f).magnitude)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            Brændslukker.transform.position = PlayerTransform.transform.position;
+            Brændslukker.transform.rotation = PlayerTransform.transform.rotation;
+            Brændslukker.transform.SetParent(PlayerTransform);
+        }
     }
 }
