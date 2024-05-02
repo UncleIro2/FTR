@@ -7,9 +7,6 @@ public class EquipScript : MonoBehaviour
     public Transform PlayerTransform;
     public GameObject Brændslukker;
     public Camera Camera;
-    public float range = 2f;
-    public float open = 100f;
-
     public Rigidbody rb;  
     
     
@@ -26,7 +23,6 @@ public class EquipScript : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             EquipObject();
-            //rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
         if (Input.GetKeyDown("q"))
@@ -34,6 +30,7 @@ public class EquipScript : MonoBehaviour
             UnequipObject();
             
         }
+
     }
 
     void UnequipObject()
