@@ -1,22 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Brand2D : MonoBehaviour
 {
 
+    
     public GameObject panel;
+    
+    
 
-    // Start is called before the first frame update
+    private RectTransform _rectTransform;
+
     void Start()
     {
-        //SetActive(true);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _rectTransform = this.gameObject.transform.Find("pin").GetComponent<RectTransform>();
     }
 }
+
