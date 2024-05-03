@@ -10,6 +10,8 @@ public class EquipScript : MonoBehaviour
     public Camera Camera;
     public Rigidbody rb;
     public bool isholding = false ;
+
+    public GameObject panel;
  
     void Update()
     {
@@ -30,7 +32,7 @@ public class EquipScript : MonoBehaviour
             obj.transform.rotation = PlayerTransform.transform.rotation;
             obj.transform.SetParent(PlayerTransform);
             isholding = true;
-
+          
         }
     }
 
@@ -73,6 +75,9 @@ public class EquipScript : MonoBehaviour
             obj = other.gameObject;
         }
     }
+
+   
+
 
 }
 
