@@ -6,29 +6,27 @@ using UnityEngine.UI;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 
-public class AnimatorScript : MonoBehaviour
+public class TæppeAnimation : MonoBehaviour
 
 {
-    public Animator pin; // Reference to the Animator component of the object you want to animate
+    public Animator Brandtæppe; // Reference to the Animator component of the object you want to animate
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(RunAnimation());
         }
+
+
     }
 
     IEnumerator RunAnimation()
     {
-        pin.SetBool("PlayAnim", true);
-        float waitTime = GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length + 0.5f;
+        Brandtæppe.SetBool("PlayAnim", true);
+        float waitTime = GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length;
         yield return new WaitForSeconds(waitTime);
-        pin.SetBool("AnimationDone", true);
+        Brandtæppe.SetBool("AnimationDone", true);
         Destroy(this.gameObject);
     }
 }
-    
-   
-
-
