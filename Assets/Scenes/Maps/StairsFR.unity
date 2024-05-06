@@ -17666,12 +17666,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 2049153607}
-  "Br\xE6ndslukker": {fileID: 0}
-  "Brandt\xE6pper\xF8r": {fileID: 0}
+  obj: {fileID: 0}
   Camera: {fileID: 338430853}
-  "rbBr\xE6ndslukker": {fileID: 0}
-  "rbBrandt\xE6pper\xF8r": {fileID: 0}
+  rb: {fileID: 0}
   isholding: 0
+  panel: {fileID: 0}
 --- !u!114 &398988073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18538,6 +18537,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1554824754}
   - {fileID: 252648255}
   - {fileID: 1285661679}
   - {fileID: 179049449}
@@ -67590,6 +67590,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554688692}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1554824753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554824754}
+  m_Layer: 0
+  m_Name: Outside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1554824754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554824753}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 719.9872, y: -24.137331, z: -427.7928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420445490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555836437
 GameObject:
   m_ObjectHideFlags: 0
