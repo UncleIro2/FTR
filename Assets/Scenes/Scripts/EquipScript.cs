@@ -7,27 +7,28 @@ using UnityEngine.UI;
 public class EquipScript : MonoBehaviour
 {
     public Transform PlayerTransform;
-    public GameObject obj;
+    public GameObject brandSlukker;
+    public GameObject brandAlarm;
     public Camera Camera;
-    public Rigidbody rb;
+    public Rigidbody brandSlukkerRB;
     public bool isholding = false ;
     public Image vandBar;
+    public AudioClip brandAlarmClip;
 
 
 
     void Update()
     {
-        if (obj != null)
+        if (brandSlukker != null)
         {
-            rb = obj.GetComponent<Rigidbody>();
-           
+            brandSlukkerRB = brandSlukker.GetComponent<Rigidbody>();
         }
 
         if(isholding)
         {
-            Extinguisher brandSlukker = obj.GetComponent<Extinguisher>();
+            Extinguisher brandSlukkerScript = brandSlukker.GetComponent<Extinguisher>();
             vandBar.transform.parent.gameObject.SetActive(true);
-            vandBar.fillAmount = brandSlukker.vand / brandSlukker.maxVand;
+            vandBar.fillAmount = brandSlukkerScript.vand / brandSlukkerScript.maxVand;
         } else
         {
             vandBar.transform.parent.gameObject.SetActive(false);
@@ -40,17 +41,15 @@ public class EquipScript : MonoBehaviour
 
     void Equip()
     { 
-        if (obj != null && (obj.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude && isholding == false) 
+        if (brandSlukker != null && (brandSlukker.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude && isholding == false) 
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            obj.transform.position = PlayerTransform.transform.position;
-            obj.transform.rotation = PlayerTransform.transform.rotation;
-            obj.transform.SetParent(PlayerTransform);
+            brandSlukkerRB.constraints = RigidbodyConstraints.FreezeAll;
+            brandSlukker.transform.position = PlayerTransform.transform.position;
+            brandSlukker.transform.rotation = PlayerTransform.transform.rotation;
+            brandSlukker.transform.SetParent(PlayerTransform);
             isholding = true;
           
         }
-
-     
     }
 
     void Unequip()
@@ -58,13 +57,22 @@ public class EquipScript : MonoBehaviour
         if(isholding == true) 
         {
 
-            rb.constraints = RigidbodyConstraints.None;
+            brandSlukkerRB.constraints = RigidbodyConstraints.None;
             PlayerTransform.DetachChildren();
-            obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            brandSlukker.transform.eulerAngles = new Vector3(0f, 180f, 0f);
             isholding = false;
         }
 
        
+    }
+
+    void StartFireAlarm()
+    {
+        if (brandAlarm != null && (brandAlarm.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude)
+        {
+            Debug.Log("Test");
+            AudioSource.PlayClipAtPoint(brandAlarmClip, transform.position);
+        }
     }
 
 
@@ -73,8 +81,8 @@ public class EquipScript : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
            
-            Equip();            
-            
+            Equip();
+            StartFireAlarm();
 
 
         }
@@ -90,10 +98,14 @@ public class EquipScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("obj") && !isholding)
         {
-            obj = other.gameObject;
+            brandSlukker = other.gameObject;
         }
-  
-       
+
+        if (other.gameObject.CompareTag("BrandAlarm"))
+        {
+            brandAlarm = other.gameObject;
+        }
+
     }
 
    

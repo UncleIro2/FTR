@@ -11,6 +11,7 @@ public enum SoundEnum
     storm = 2,
     earthquake = 3,
     bip = 4,
+    Firealarm = 5,
     
 }
 

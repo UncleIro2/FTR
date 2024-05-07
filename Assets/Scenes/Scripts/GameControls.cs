@@ -37,6 +37,13 @@ public class KeyAction : MonoBehaviour
             // Perform the action when '4' key is pressed
             SoundMananger.instance.PlaySound(SoundEnum.bip);
         }
+       
+        // Check if 'u' key is pressed
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            // Perform the action when '4' key is pressed
+            SoundMananger.instance.PlaySound(SoundEnum.Firealarm);
+        }
     }
 
 

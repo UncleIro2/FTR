@@ -7,6 +7,7 @@ TagManager:
   - Undefined
   - "D\xF8r"
   - obj
+  - BrandAlarm
   layers:
   - Default
   - TransparentFX
