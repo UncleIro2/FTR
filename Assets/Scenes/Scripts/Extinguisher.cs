@@ -15,8 +15,9 @@ public class Extinguisher : MonoBehaviour
     public float maxVand;
     public float vandCost;
 
-  
-   
+    public AnimatorScript animatorScript;
+    public EquipScript equipScript;
+
 
 
 
@@ -30,6 +31,10 @@ public class Extinguisher : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Pin();
+
 
             bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
             if (Input.GetMouseButton(0) && isEquipped && vand > 0)
@@ -47,8 +52,8 @@ public class Extinguisher : MonoBehaviour
 
 
             }
-       
-           
+
+        } 
         
 
 
@@ -60,4 +65,17 @@ public class Extinguisher : MonoBehaviour
       
 
     }
+
+    void Pin()
+    {
+        if (equipScript.isholding == true) 
+        {
+            StartCoroutine(animatorScript.RunAnimation());
+
+            
+
+        }
+
+    }
+
 }

@@ -78,12 +78,12 @@ public class EquipScript : MonoBehaviour
 
 
         }
-         if (Input.GetKeyDown("q"))
-         {
+        if (Input.GetKeyDown("q"))
+        {
 
             Unequip();
    
-         }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,8 +92,7 @@ public class EquipScript : MonoBehaviour
         {
             obj = other.gameObject;
         }
-      
-
+  
        
     }
 
