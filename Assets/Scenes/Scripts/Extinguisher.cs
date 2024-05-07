@@ -14,8 +14,8 @@ public class Extinguisher : MonoBehaviour
     public float vand;
     public float maxVand;
     public float vandCost;
-
-    public AnimatorScript animatorScript;
+    public bool pinPulled = false;
+    public Animator pin;
     public EquipScript equipScript;
 
 
@@ -31,13 +31,15 @@ public class Extinguisher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !pinPulled && equipScript.brandSlukker == this.gameObject)
         {
+            pinPulled = true;
             Pin();
+        }
 
 
             bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
-            if (Input.GetMouseButton(0) && isEquipped && vand > 0)
+            if (isEquipped && pinPulled && Input.GetMouseButton(0) && vand > 0)
             {
                 vand -= vandCost + Time.deltaTime;
                 if (vand < 0) vand = 0;
@@ -52,8 +54,6 @@ public class Extinguisher : MonoBehaviour
 
 
             }
-
-        } 
         
 
 
@@ -68,14 +68,17 @@ public class Extinguisher : MonoBehaviour
 
     void Pin()
     {
-        if (equipScript.isholding == true) 
-        {
-            StartCoroutine(animatorScript.RunAnimation());
+        StartCoroutine(RunAnimation());
 
-            
+    }
 
-        }
-
+    public IEnumerator RunAnimation()
+    {
+        pin.SetBool("PlayAnim", true);
+        float waitTime = pin.runtimeAnimatorController.animationClips[0].length + 0.5f;
+        yield return new WaitForSeconds(waitTime);
+        pin.SetBool("AnimationDone", true);
+        Destroy(pin.gameObject);
     }
 
 }
