@@ -7,7 +7,6 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 
 public class AnimatorScript : MonoBehaviour
-
 {
     public Animator pin; // Reference to the Animator component of the object you want to animate
     private void Update()

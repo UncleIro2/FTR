@@ -6,9 +6,16 @@ public class Fire : MonoBehaviour
 {
     [SerializeField, Range(0f, 1f)]  private float currentIntersity = 1f;
     
-    private float [] startIntensities = new float [0];
+    private float[] startIntensities = new float [0];
 
     [SerializeField] private ParticleSystem [] fireParticleSystems = new ParticleSystem[0];
+
+    float timeLastWatered = 0f;
+
+    [SerializeField] private float regenDelay = 2.5f;
+    [SerializeField] private float regenRate = 0.1f;
+
+    public bool isLit = true;
 
     private void Start()
     {
@@ -24,12 +31,38 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
+       if (isLit && currentIntersity < 1f && Time.time - timeLastWatered >= regenDelay) 
+        {
+            currentIntersity += regenRate * Time.deltaTime;
+            ChangeIntensity();
+        
+        
+        }
+    }
+
+    public bool TryExtinguish(float amount)
+    {
+        timeLastWatered = Time.time;
+
+        currentIntersity -= amount;
+
         ChangeIntensity();
+
+        if (currentIntersity < 0f )
+        { 
+            isLit = false;
+            return true;
+        
+        }
+        
+        //ild er stadig tændt
+        return false;
+
     }
 
     private void ChangeIntensity () 
     {
-        for (int i = 0;i < fireParticleSystems.Length;i++)
+        for (int i = 0; i < fireParticleSystems.Length; i++)
         {
 
             var emission = fireParticleSystems[i].emission;

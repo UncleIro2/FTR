@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class EquipScript : MonoBehaviour
@@ -10,15 +11,29 @@ public class EquipScript : MonoBehaviour
     public Camera Camera;
     public Rigidbody rb;
     public bool isholding = false ;
+    public Image vandBar;
 
-    public GameObject panel;
- 
+
+
     void Update()
     {
         if (obj != null)
         {
             rb = obj.GetComponent<Rigidbody>();
+           
         }
+
+        if(isholding)
+        {
+            Extinguisher brandSlukker = obj.GetComponent<Extinguisher>();
+            vandBar.transform.parent.gameObject.SetActive(true);
+            vandBar.fillAmount = brandSlukker.vand / brandSlukker.maxVand;
+        } else
+        {
+            vandBar.transform.parent.gameObject.SetActive(false);
+        }
+
+     
         KeyBind();
   
     }
@@ -34,6 +49,8 @@ public class EquipScript : MonoBehaviour
             isholding = true;
           
         }
+
+     
     }
 
     void Unequip()
@@ -45,8 +62,9 @@ public class EquipScript : MonoBehaviour
             PlayerTransform.DetachChildren();
             obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
             isholding = false;
-      ;
         }
+
+       
     }
 
 
@@ -74,6 +92,9 @@ public class EquipScript : MonoBehaviour
         {
             obj = other.gameObject;
         }
+      
+
+       
     }
 
    
