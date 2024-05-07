@@ -26,7 +26,7 @@ public class DoorOpen : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.F) && !door.isMoving)
+        if (Input.GetKeyDown(KeyCode.E) && !door.isMoving)
         {
 
 
