@@ -6,8 +6,13 @@ TagManager:
   tags:
   - Undefined
   - "D\xF8r"
-  - obj
   - BrandAlarm
+  - Brandslukker
+  - "Brandt\xE6ppeR\xF8r"
+  - "Brandt\xE6ppe"
+  - "T\xE6ppeTP"
+  - obj
+  - fire
   layers:
   - Default
   - TransparentFX

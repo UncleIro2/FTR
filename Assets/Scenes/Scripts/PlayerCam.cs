@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    //Sensitivity  
+    [Header("Sensitivity")]  
     public float SensX;
     public float SensY;
 
-    //Player orintation 
+    [Header("Player orintation ")] 
     public Transform orientation;
 
-    //Cam rotation
+    [Header("Cam rotation")]
     float xRotation;
     float yRotation;
 

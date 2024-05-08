@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    [Header("Flame")]
     [SerializeField, Range(0f, 1f)]  private float currentIntersity = 1f;
-    
     private float[] startIntensities = new float [0];
-
     [SerializeField] private ParticleSystem [] fireParticleSystems = new ParticleSystem[0];
+    public bool isLit = true;
 
+    [Header("Regen")]
     float timeLastWatered = 0f;
-
     [SerializeField] private float regenDelay = 2.5f;
     [SerializeField] private float regenRate = 0.1f;
 
-    public bool isLit = true;
 
     private void Start()
     {

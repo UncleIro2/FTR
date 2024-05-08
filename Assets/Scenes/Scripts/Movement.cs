@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+
+
     [Header("Movement")]   
     private float moveSpeed;
     public float wlakSpeed;
@@ -50,7 +52,7 @@ public class Movement : MonoBehaviour
 
     private Coroutine recharge;
 
-    [Header(".")]
+    [Header("MISC")]
     public Transform orientation;
     public MovementState state;
 
