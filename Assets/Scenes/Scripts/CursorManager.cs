@@ -5,15 +5,15 @@ using static UnityEngine.Timeline.AnimationPlayableAsset;
 
 public class CursorManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D cursorTexture;
+    //[SerializeField] private Texture2D cursorTexture;
 
     private Vector2 cursorHotspot;
 
     void Start()
     {
         cursorHotspot = new Vector2(cursorHotspot.x / 2, cursorHotspot.y / 2);   
-        Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
-        Cursor.visible = true;
+        //Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+        Cursor.visible = false;
 
     }
 }

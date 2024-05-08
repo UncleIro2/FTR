@@ -9,7 +9,11 @@ public class KillPlayer : MonoBehaviour
     public int Respawn;
     void OnTriggerEnter(Collider other)
     {
-        Invoke("killPlayer", 0.2f);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("restart");
+            Invoke("killPlayer", 0.2f);
+        }
 
     }
 

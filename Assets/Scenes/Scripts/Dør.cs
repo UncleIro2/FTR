@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Dør : MonoBehaviour
 {
+    [Header("Door")]
     public bool isOpen = false;
     public bool isMoving = false;
     public float rotationSpeed = 2f; // Adjust as needed
