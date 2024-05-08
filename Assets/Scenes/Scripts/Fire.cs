@@ -5,7 +5,6 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     [Header("Flame")]
-    public GameObject fire;
     [SerializeField, Range(0f, 1f)] private float currentIntersity = 1f;
     private float[] startIntensities = new float[0];
     [SerializeField] private ParticleSystem[] fireParticleSystems = new ParticleSystem[0];
@@ -50,8 +49,7 @@ public class Fire : MonoBehaviour
 
         if (currentIntersity <= 0f)
         {
-            isLit = false;
-            fire.gameObject.SetActive(false);
+            Destroy(this.gameObject);
             return true;
 
 

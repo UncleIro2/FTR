@@ -39,18 +39,7 @@ public class Extinguisher : MonoBehaviour
     private void Update()
     {
 
-        if (equipScript.equippedItem == EquipScript.EquippedItem.BrandSlukker)
-        {
-            FireExt(1);
-
-        }
-        if (equipScript.equippedItem == EquipScript.EquippedItem.Brandtæppe)
-        {
-            FireExt(2);
-
-        }
-
-
+        FireExt(equipScript.equippedItem);
 
     }
 
@@ -69,11 +58,11 @@ public class Extinguisher : MonoBehaviour
         Destroy(pin.gameObject);
     }
 
-    void FireExt(int state)
+    void FireExt(EquipScript.EquippedItem item)
     {
 
         bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
-        if (state == 1)
+        if (item == EquipScript.EquippedItem.BrandSlukker)
         {
             print("state 1");
 
@@ -108,7 +97,7 @@ public class Extinguisher : MonoBehaviour
             }
         }
 
-        if (state == 2)
+        if (item == EquipScript.EquippedItem.Brandtæppe)
         {
 
             if (Input.GetMouseButtonDown(0))
@@ -118,7 +107,7 @@ public class Extinguisher : MonoBehaviour
                     print("state 2");
 
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
-                   
+                    Destroy(equipScript.brandTæppe);
 
 
                 }

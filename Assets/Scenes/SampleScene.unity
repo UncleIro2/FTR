@@ -440,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfdaf529932baa42b8a59f047dd4ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountExtinguishPerSecond: 0.2
-  "brandt\xE6mppeAmount": 50
+  amountExtinguishPerSecond: 0.5
+  "brandt\xE6mppeAmount": 0
   vand: 100
   maxVand: 100
   vandCost: 0.1
@@ -1831,7 +1831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890c765a4eb37364eb3307fdff34d3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 686120441}
   currentIntersity: 1
   fireParticleSystems:
   - {fileID: 686120446}
@@ -3909,7 +3908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890c765a4eb37364eb3307fdff34d3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 0}
   currentIntersity: 1
   fireParticleSystems:
   - {fileID: 1384468741}
@@ -5653,8 +5651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfdaf529932baa42b8a59f047dd4ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountExtinguishPerSecond: 0.2
-  "brandt\xE6mppeAmount": 1000
+  amountExtinguishPerSecond: 0.25
+  "brandt\xE6mppeAmount": 100
   vand: 100
   maxVand: 100
   vandCost: 0.1
@@ -5704,7 +5702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890c765a4eb37364eb3307fdff34d3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 686120441}
   currentIntersity: 1
   fireParticleSystems:
   - {fileID: 1974373286}
@@ -5712,7 +5709,7 @@ MonoBehaviour:
   - {fileID: 1259478098}
   - {fileID: 2029292414}
   isLit: 1
-  regenDelay: 2.5
+  regenDelay: 2
   regenRate: 1
 --- !u!198 &1974373286 stripped
 ParticleSystem:
