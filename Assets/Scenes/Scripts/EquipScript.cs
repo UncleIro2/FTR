@@ -112,6 +112,7 @@ public class EquipScript : MonoBehaviour
             brandTæppe.transform.position = brandTæppeTransform.transform.position;
             brandTæppe.transform.rotation = brandTæppeTransform.transform.rotation;
             brandTæppe.transform.SetParent(brandTæppeTransform);
+            brandTæppe.SetActive(true);
             brandTæppeCollider.enabled = false;
             equippedItem = EquippedItem.Brandtæppe;
 
