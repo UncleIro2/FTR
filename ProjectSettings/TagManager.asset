@@ -13,6 +13,8 @@ TagManager:
   - "T\xE6ppeTP"
   - obj
   - fire
+  - Activator
+  - "N\xF8dsituation"
   layers:
   - Default
   - TransparentFX

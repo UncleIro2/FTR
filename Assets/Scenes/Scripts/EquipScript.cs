@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -22,6 +23,9 @@ public class EquipScript : MonoBehaviour
     [Header("BrandAlarm")]
     public AudioClip brandAlarmClip;
     public GameObject brandAlarm;
+    
+    [Header("Nødsituation")]
+    public AudioClip NødsituationClip;
 
     [Header("Brandtæpperør")]
     public GameObject brandTæppeRør;
@@ -136,6 +140,10 @@ public class EquipScript : MonoBehaviour
 
 
     }
+    void StartNødsituation()
+    {
+        AudioSource.PlayClipAtPoint(NødsituationClip, transform.position);
+    }
 
     void StartFireAlarm()
     {
@@ -202,6 +210,10 @@ public class EquipScript : MonoBehaviour
             brandAlarm = other.gameObject;
         }
 
+        if (other.gameObject.CompareTag("Nødsituation"))
+        {
+            StartNødsituation();
+        }
 
     }
 
