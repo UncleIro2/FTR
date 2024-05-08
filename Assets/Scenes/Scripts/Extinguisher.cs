@@ -64,8 +64,7 @@ public class Extinguisher : MonoBehaviour
         bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
         if (item == EquipScript.EquippedItem.BrandSlukker)
         {
-            print("state 1");
-
+        
             if (Input.GetKeyDown(KeyCode.P) && !pinPulled && equipScript.brandSlukker == this.gameObject)
             {
                 pinPulled = true;
@@ -104,7 +103,7 @@ public class Extinguisher : MonoBehaviour
             {
                 if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5f) && hit.collider.TryGetComponent(out Fire fire))
                 {
-                    print("state 2");
+                   
 
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
                     Destroy(equipScript.brandTæppe);
