@@ -143,7 +143,7 @@ public class EquipScript : MonoBehaviour
     }
     void StartNødsituation()
     {
-        AudioSource.PlayClipAtPoint(NødsituationClip, transform.position);
+        SoundMananger.instance.PlaySound(SoundEnum.Nødsituation);
     }
 
     void StartFireAlarm()

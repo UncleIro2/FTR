@@ -12,6 +12,7 @@ public enum SoundEnum
     earthquake = 3,
     bip = 4,
     Firealarm = 5,
+    Nødsituation = 6
     
 }
 

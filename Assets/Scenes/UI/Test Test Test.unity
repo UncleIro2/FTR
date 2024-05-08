@@ -2886,7 +2886,7 @@ MonoBehaviour:
   "brandT\xE6ppeCollider": {fileID: 1539432757}
   brandAlarmClip: {fileID: 8300000, guid: b247c3f5857d6a843950eada7b665e32, type: 3}
   brandAlarm: {fileID: 0}
-  "N\xF8dsituationClip": {fileID: 8300000, guid: dc53a41670b2e154badc26efe459f099, type: 3}
+  "N\xF8dsituationClip": {fileID: 8300000, guid: a01959d828343f44892cf401bafd031e, type: 3}
   "brandT\xE6ppeR\xF8r": {fileID: 0}
   Camera: {fileID: 1810957158}
   vandBar: {fileID: 1115536687}

@@ -54,6 +54,21 @@ public class SceneTransition : MonoBehaviour
         
         SceneManager.LoadScene("CommingWater");
     }
+    public void LoadMediumLevels()
+    {
+
+        SceneManager.LoadScene("MediumLevels");
+    }
+    public void LoadHardLevels()
+    {
+
+        SceneManager.LoadScene("HardLevels");
+    }
+    public void LoadEasyLevels()
+    {
+
+        SceneManager.LoadScene("EasyLevels");
+    }
     public void LoadCommingEarth()
     {
         SoundMananger.instance.PlaySound(SoundEnum.earthquake);
