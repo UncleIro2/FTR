@@ -5652,7 +5652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountExtinguishPerSecond: 0.25
-  "brandt\xE6mppeAmount": 100
+  "brandt\xE6mppeAmount": 200
   vand: 100
   maxVand: 100
   vandCost: 0.1
@@ -6234,10 +6234,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
+  - {fileID: 1333742123}
   - {fileID: 1591116312}
   - {fileID: 1751969415}
   - {fileID: 1260142917}
   - {fileID: 1276841245}
-  - {fileID: 1333742123}
   - {fileID: 1310242447}
   - {fileID: 764532823}

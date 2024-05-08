@@ -49,7 +49,8 @@ public class Fire : MonoBehaviour
 
         if (currentIntersity <= 0f)
         {
-            Destroy(this.gameObject);
+
+            Invoke("Destroy", 3f);
             return true;
 
 
@@ -71,5 +72,10 @@ public class Fire : MonoBehaviour
         }
 
 
+    }
+
+    void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 }
