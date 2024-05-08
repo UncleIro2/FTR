@@ -19,8 +19,8 @@ public class KillPlayer : MonoBehaviour
 
     void killPlayer()
     {
-        
-            SceneManager.LoadScene("SampleScene");
+
+        SceneManager.LoadScene("SampleScene");
     }
 }
 

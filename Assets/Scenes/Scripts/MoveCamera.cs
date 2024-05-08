@@ -9,7 +9,7 @@ public class MoveCamera : MonoBehaviour
     //Sørge for at Kameraet altdi følger med spilleren 
     private void Update()
     {
-        transform.position=cameraPosition.position;
+        transform.position = cameraPosition.position;
     }
 
 }

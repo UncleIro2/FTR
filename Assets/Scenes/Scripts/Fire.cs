@@ -5,9 +5,10 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     [Header("Flame")]
-    [SerializeField, Range(0f, 1f)]  private float currentIntersity = 1f;
-    private float[] startIntensities = new float [0];
-    [SerializeField] private ParticleSystem [] fireParticleSystems = new ParticleSystem[0];
+    public GameObject fire;
+    [SerializeField, Range(0f, 1f)] private float currentIntersity = 1f;
+    private float[] startIntensities = new float[0];
+    [SerializeField] private ParticleSystem[] fireParticleSystems = new ParticleSystem[0];
     public bool isLit = true;
 
     [Header("Regen")]
@@ -20,22 +21,22 @@ public class Fire : MonoBehaviour
     {
         startIntensities = new float[fireParticleSystems.Length];
 
-        for (int i = 0; i < fireParticleSystems.Length; i++) 
+        for (int i = 0; i < fireParticleSystems.Length; i++)
         {
             startIntensities[i] = fireParticleSystems[i].emission.rateOverTime.constant;
-        
+
         }
 
     }
 
     private void Update()
     {
-       if (isLit && currentIntersity < 1f && Time.time - timeLastWatered >= regenDelay) 
+        if (isLit && currentIntersity < 1f && Time.time - timeLastWatered >= regenDelay)
         {
             currentIntersity += regenRate * Time.deltaTime;
             ChangeIntensity();
-        
-        
+
+
         }
     }
 
@@ -47,19 +48,21 @@ public class Fire : MonoBehaviour
 
         ChangeIntensity();
 
-        if (currentIntersity < 0f )
-        { 
+        if (currentIntersity <= 0f)
+        {
             isLit = false;
+            fire.gameObject.SetActive(false);
             return true;
-        
+
+
         }
-        
+
         //ild er stadig tændt
         return false;
 
     }
 
-    private void ChangeIntensity () 
+    private void ChangeIntensity()
     {
         for (int i = 0; i < fireParticleSystems.Length; i++)
         {

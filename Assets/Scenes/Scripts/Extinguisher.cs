@@ -9,7 +9,7 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 public class Extinguisher : MonoBehaviour
 {
     [Header("Brandslukker")]
-    [SerializeField] private float amountExtinguishPerSecond = 1.0f, brandtæmppeAmount = 50;
+    [SerializeField] private float amountExtinguishPerSecond = 1.0f, brandtæmppeAmount = 100;
     ParticleSystem ps;
 
     [Header("Vandtank")]
@@ -46,7 +46,7 @@ public class Extinguisher : MonoBehaviour
         if (equipScript.equippedItem == EquipScript.EquippedItem.Brandtæppe)
         {
             FireExt(2);
-           
+
         }
 
 
@@ -70,7 +70,7 @@ public class Extinguisher : MonoBehaviour
 
     void FireExt(int state)
     {
-        
+
         bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
         if (state == 1)
         {
@@ -95,6 +95,8 @@ public class Extinguisher : MonoBehaviour
 
                     fire.TryExtinguish(amountExtinguishPerSecond * Time.deltaTime);
 
+
+
                 }
 
             }
@@ -107,16 +109,16 @@ public class Extinguisher : MonoBehaviour
 
         if (state == 2)
         {
-            
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 20f) && hit.collider.TryGetComponent(out Fire fire))
                 {
-                print("state 2");
+                    print("state 2");
 
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
-                    //fire.gameObject.SetActive(false);
                    
+
 
                 }
 

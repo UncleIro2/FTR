@@ -11,7 +11,7 @@ public class CursorManager : MonoBehaviour
 
     void Start()
     {
-        cursorHotspot = new Vector2(cursorHotspot.x / 2, cursorHotspot.y / 2);   
+        cursorHotspot = new Vector2(cursorHotspot.x / 2, cursorHotspot.y / 2);
         //Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
         Cursor.visible = false;
 

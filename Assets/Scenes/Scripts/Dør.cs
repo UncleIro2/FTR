@@ -13,10 +13,10 @@ public class Dør : MonoBehaviour
     public void ToggleDoor()
     {
         Quaternion targetRotation = Quaternion.Euler(0, isOpen ? -90 : 90, 0) * this.transform.rotation;
-        if (!isMoving) 
-        { 
+        if (!isMoving)
+        {
             StartCoroutine(RotateDoor(targetRotation));
-            
+
         }
 
         isOpen = !isOpen;
@@ -24,24 +24,24 @@ public class Dør : MonoBehaviour
 
     }
 
-    
+
 
     IEnumerator RotateDoor(Quaternion targetRotation)
     {
         Quaternion startRotation = this.transform.rotation;
         float elapsedTime = 0f;
-    
+
         while (elapsedTime < 1f)
         {
             isMoving = true;
             elapsedTime += Time.deltaTime * rotationSpeed;
             this.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime);
             yield return null;
-            isMoving = false;        
+            isMoving = false;
 
         }
 
-     
+
 
         // Ensure the door reaches the exact target rotation
         this.transform.rotation = targetRotation;

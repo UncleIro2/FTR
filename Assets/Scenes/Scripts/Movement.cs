@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 {
 
 
-    [Header("Movement")]   
+    [Header("Movement")]
     private float moveSpeed;
     public float wlakSpeed;
     public float sprintSpeed;
@@ -98,7 +98,7 @@ public class Movement : MonoBehaviour
             rb.drag = 0;
         }
 
-    
+
     }
 
     private void FixedUpdate()
@@ -108,33 +108,33 @@ public class Movement : MonoBehaviour
     }
 
     //Move input
-    private void MyInput () 
+    private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
 
         //Tjækker for om der trykket på hop kanppen
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
 
             Jump();
 
             readyToJump = false;
 
-            
+
             Invoke(nameof(ResetJump), jumpCooldown);
-               
-           
+
+
 
 
         }
 
-       
+
 
         //Start Crouch
-        if (Input.GetKeyDown(crouchKey)) 
-        { 
+        if (Input.GetKeyDown(crouchKey))
+        {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
@@ -159,7 +159,7 @@ public class Movement : MonoBehaviour
 
 
         //Sprint mode
-        if (grounded && Input.GetKey(sprintKey)) 
+        if (grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.spritning;
             moveSpeed = sprintSpeed;
@@ -168,7 +168,7 @@ public class Movement : MonoBehaviour
             if (stamina < 0) stamina = 0;
             staminaBar.fillAmount = stamina / maxStamina;
 
-            if(stamina == 0) 
+            if (stamina == 0)
             {
                 state = MovementState.walking;
                 moveSpeed = wlakSpeed;
@@ -177,7 +177,7 @@ public class Movement : MonoBehaviour
 
             if (recharge != null) StopCoroutine(recharge);
             recharge = StartCoroutine(rechargeStamina());
-           
+
 
 
         }
@@ -187,11 +187,11 @@ public class Movement : MonoBehaviour
         {
             state = MovementState.walking;
             moveSpeed = wlakSpeed;
-            
+
         }
 
         //Air mode
-        else 
+        else
         {
             state = MovementState.air;
 
@@ -207,12 +207,12 @@ public class Movement : MonoBehaviour
     }
 
     //Gøre så man kan bevæge spilleren 
-    private void MovePlayer () 
-    { 
+    private void MovePlayer()
+    {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         //På slope 
-        if(OnSloop() && !exitingSlope)
+        if (OnSloop() && !exitingSlope)
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
 
@@ -238,7 +238,7 @@ public class Movement : MonoBehaviour
     }
 
     //Sørge for at hastigheden af spileren er det man sætter den til 
-    private void SpeedControl () 
+    private void SpeedControl()
     {
         //Sørge at man går op ad slopes med samme hastighed som man går på jorden.  
         if (OnSloop() && !exitingSlope)
@@ -259,13 +259,13 @@ public class Movement : MonoBehaviour
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
 
-        } 
-    
+        }
+
     }
 
     private void Jump()
     {
-        if(stamina > 0f)
+        if (stamina > 0f)
         {
             exitingSlope = true;
 
@@ -275,9 +275,9 @@ public class Movement : MonoBehaviour
             //hop funktionen 
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
-        
 
-        
+
+
     }
 
     //Sørge for man kan hoppe igen 
@@ -286,7 +286,7 @@ public class Movement : MonoBehaviour
         readyToJump = true;
 
         exitingSlope = false;
-        
+
     }
 
     //Laver raycast når man er på slope da der en vinkel
@@ -294,7 +294,7 @@ public class Movement : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
-            float angle = Vector3.Angle(Vector3.up, slopeHit .normal);
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
 
@@ -307,17 +307,17 @@ public class Movement : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
-  private IEnumerator rechargeStamina() 
-    { 
+    private IEnumerator rechargeStamina()
+    {
         yield return new WaitForSeconds(1f);
-        while(stamina < maxStamina) 
+        while (stamina < maxStamina)
         {
             stamina += charegeRate / 10f;
-            if(stamina > maxStamina) stamina = maxStamina;
+            if (stamina > maxStamina) stamina = maxStamina;
             staminaBar.fillAmount = stamina / maxStamina;
             yield return new WaitForSeconds(0.1f);
         }
 
     }
-       
+
 }

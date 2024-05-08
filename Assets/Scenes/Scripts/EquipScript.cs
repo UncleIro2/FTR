@@ -17,7 +17,7 @@ public class EquipScript : MonoBehaviour
     public Rigidbody brandTæppeRB;
     public Transform brandTæppeTransform;
     public Collider brandTæppeCollider;
-    public Collider brandTæppeColliderTrigger;
+
 
     [Header("BrandAlarm")]
     public AudioClip brandAlarmClip;
@@ -25,9 +25,9 @@ public class EquipScript : MonoBehaviour
 
     [Header("Brandtæpperør")]
     public GameObject brandTæppeRør;
-   
+
     [Header("MISC")]
-    public Camera Camera;   
+    public Camera Camera;
     public Image vandBar;
 
 
@@ -38,7 +38,7 @@ public class EquipScript : MonoBehaviour
 
 
 
-public enum EquippedItem
+    public enum EquippedItem
     {
         Ingenting,
         BrandSlukker,
@@ -47,7 +47,7 @@ public enum EquippedItem
 
     public EquippedItem equippedItem;
 
-    
+
 
     void Update()
     {
@@ -66,19 +66,20 @@ public enum EquippedItem
             Extinguisher brandSlukkerScript = brandSlukker.GetComponent<Extinguisher>();
             vandBar.transform.parent.gameObject.SetActive(true);
             vandBar.fillAmount = brandSlukkerScript.vand / brandSlukkerScript.maxVand;
-        } else
+        }
+        else
         {
             vandBar.transform.parent.gameObject.SetActive(false);
         }
 
-     
+
         KeyBind();
-  
+
     }
 
     void Equip()
-    { 
-        if (brandSlukker != null && (brandSlukker.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude && equippedItem == EquippedItem.Ingenting) 
+    {
+        if (brandSlukker != null && (brandSlukker.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude && equippedItem == EquippedItem.Ingenting)
         {
 
             //Sætte Brandslukker på player
@@ -87,16 +88,18 @@ public enum EquippedItem
             brandSlukker.transform.rotation = PlayerTransform.transform.rotation;
             brandSlukker.transform.SetParent(PlayerTransform);
             equippedItem = EquippedItem.BrandSlukker;
-          
+
         }
 
-        if(brandTæppeRør != null && equippedItem == EquippedItem.Ingenting)
+        if (brandTæppeRør != null && equippedItem == EquippedItem.Ingenting)
         {
 
             brandTæppe.SetActive(true);
-
           
-         
+
+
+
+
         }
         if (brandTæppe != null && (brandTæppe.transform.position - brandTæppeTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude && equippedItem == EquippedItem.Ingenting)
         {
@@ -114,8 +117,8 @@ public enum EquippedItem
     }
 
     void Unequip()
-    { 
-        if(equippedItem == EquippedItem.BrandSlukker) 
+    {
+        if (equippedItem == EquippedItem.BrandSlukker)
         {
             brandSlukkerRB.constraints = RigidbodyConstraints.None;
             PlayerTransform.DetachChildren();
@@ -138,22 +141,22 @@ public enum EquippedItem
     {
         if (brandAlarm != null && (brandAlarm.transform.position - PlayerTransform.transform.position).magnitude <= new Vector3(1f, 1f, 1f).magnitude)
         {
-            
+
             AudioSource.PlayClipAtPoint(brandAlarmClip, transform.position);
         }
     }
 
-  
+
 
 
     void KeyBind()
     {
         if (Input.GetKeyDown("e"))
         {
-           
+
             Equip();
             StartFireAlarm();
-       
+
 
 
         }
@@ -161,7 +164,7 @@ public enum EquippedItem
         {
 
             Unequip();
-   
+
         }
     }
 
@@ -171,10 +174,10 @@ public enum EquippedItem
         {
             brandSlukker = other.gameObject;
         }
-        
-        if(other.gameObject.CompareTag("BrandtæppeRør") && equippedItem == EquippedItem.Ingenting)
+
+        if (other.gameObject.CompareTag("BrandtæppeRør") && equippedItem == EquippedItem.Ingenting)
         {
-         
+
 
             brandTæppeRør = other.gameObject;
             string parentName = brandTæppeRør.name;
@@ -202,7 +205,7 @@ public enum EquippedItem
 
     }
 
-   
+
 
 
 }

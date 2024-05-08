@@ -21,7 +21,7 @@ public class DoorOpen : MonoBehaviour
             if (hit.collider.CompareTag("Dør"))
             {
                 door = hit.collider.gameObject.GetComponent<Dør>();
-                
+
             }
         }
 
@@ -41,5 +41,5 @@ public class DoorOpen : MonoBehaviour
 
         }
     }
-  
+
 }
