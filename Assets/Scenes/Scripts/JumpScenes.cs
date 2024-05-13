@@ -37,7 +37,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadDifficulty()
     {
-
+        SoundMananger.instance.PlaySound(SoundEnum.Background);
         SceneManager.LoadScene("Difficulty");
     }
     public void LoadStart()
@@ -94,6 +94,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadTutorialFireEscape()
     {
+        SoundMananger.instance.StopAllSounds();
         GameManager.lastLevelSceneIndex = 11;
         SceneManager.LoadScene("TutorialFireEscape");
     }
