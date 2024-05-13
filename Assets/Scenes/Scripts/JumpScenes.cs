@@ -11,12 +11,9 @@ public class SceneTransition : MonoBehaviour
 {
 
     public string load;
-    private int previousSceneIndex;
 
     void Start()
     {
-        // Store the index of the current scene when the script starts
-        previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     public void LoadSampleScene()
     {
@@ -97,22 +94,23 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadTutorialFireEscape()
     {
-
+        GameManager.lastLevelSceneIndex = 11;
         SceneManager.LoadScene("TutorialFireEscape");
     }
     public void GoToPreviousScene()
     {
-        // Load the previous scene based on its index
-        SceneManager.LoadScene(previousSceneIndex);
+        SceneManager.LoadScene(GameManager.lastLevelSceneIndex);
     }
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player" && load == "Win")
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("WinningScreen");
         }
         else if (player.gameObject.tag == "Player" && load == "Death")
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("DeathScreen");
         }
     }

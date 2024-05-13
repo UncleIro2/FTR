@@ -557,7 +557,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2048765600}
         m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: LoadTurtorial
+        m_MethodName: LoadTutorialFireEscape
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
