@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Movement : MonoBehaviour
 {
@@ -117,7 +119,8 @@ public class Movement : MonoBehaviour
 
         if (smoke != null && stamina == 0f)
         {
-            killPlayer.Respawn();
+            SceneManager.LoadScene("DeathScreen");
+
         }
 
 
