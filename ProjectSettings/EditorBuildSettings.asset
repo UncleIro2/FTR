@@ -42,11 +42,17 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/UI/WinningScreen.unity
+    guid: a4c772d431f45ac43901bb6600667fff
+  - enabled: 1
     path: Assets/Scenes/UI/EasyLevels.unity
     guid: 1df4c90391ec1f7498c5d70ab27cbbb6
   - enabled: 1
     path: Assets/Scenes/UI/HardLevels.unity
     guid: 23c47b044348a56438a2de698a56d0da
+  - enabled: 1
+    path: Assets/Scenes/UI/DeathScreen.unity
+    guid: 0ca0c63a835588a42bf289f971b6458f
   - enabled: 1
     path: Assets/Scenes/UI/MediumLevels.unity
     guid: ce7dda8d3da8c0c4e862117d7e499a92

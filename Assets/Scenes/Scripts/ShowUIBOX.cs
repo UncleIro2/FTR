@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIShow : MonoBehaviour
+public class UIShowBOX : MonoBehaviour
 {
 
     public GameObject uiObject;
@@ -11,22 +11,20 @@ public class UIShow : MonoBehaviour
     {
         uiObject.SetActive(false);
     }
-    
-    void OnTriggerEnter(Collider player)
-    {
-        if(player.gameObject.tag == "Player")
-        {
-            uiObject.SetActive(true);
-        }
 
-    }
-    void OnTriggerExit(Collider player)
+    void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player")
         {
-            uiObject.SetActive(false);
+            uiObject.SetActive(true);
+            StartCoroutine("WaitForSec");
         }
 
     }
-
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(uiObject);
+        Destroy(gameObject);
+    }
 }

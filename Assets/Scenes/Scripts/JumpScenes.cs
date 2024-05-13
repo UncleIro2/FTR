@@ -9,14 +9,17 @@ public class SceneTransition : MonoBehaviour
 
 
 {
+
+    public string load;
+
     public void LoadSampleScene()
     {
-        
+
         SceneManager.LoadScene("SampleScene");
     }
     public void LoadGuidlines()
     {
-        
+
         SceneManager.LoadScene("Guidlines");
     }
     public void LoadGetReady()
@@ -26,18 +29,18 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadEnterCode()
     {
-        
+
         SceneManager.LoadScene("EnterCode");
     }
     public void LoadDifficulty()
     {
-        
+
         SceneManager.LoadScene("Difficulty");
     }
     public void LoadStart()
     {
-      
-       SceneManager.LoadScene("Start");
+
+        SceneManager.LoadScene("Start");
     }
     public void LoadVestskovenConfirmed()
     {
@@ -46,12 +49,12 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadPlayPublic()
     {
-        
+
         SceneManager.LoadScene("PlayPublic");
     }
     public void LoadCommingWater()
     {
-        
+
         SceneManager.LoadScene("CommingWater");
     }
     public void LoadMediumLevels()
@@ -72,13 +75,13 @@ public class SceneTransition : MonoBehaviour
     public void LoadCommingEarth()
     {
         SoundMananger.instance.PlaySound(SoundEnum.earthquake);
-        
+
         SceneManager.LoadScene("CommingEarth");
     }
     public void LoadCommingTornado()
     {
         SoundMananger.instance.PlaySound(SoundEnum.storm);
-        
+
         SceneManager.LoadScene("CommingTornado");
     }
     public void FailedPassword()
@@ -86,6 +89,19 @@ public class SceneTransition : MonoBehaviour
         SoundMananger.instance.PlaySound(SoundEnum.correct);
         SceneManager.LoadScene("FailedPassword");
     }
+
+    void OnTriggerEnter(Collider player)
+    {
+        if (player.gameObject.tag == "Player" && load == "Win")
+        {
+            SceneManager.LoadScene("WinningScreen");
+        }
+        else if (player.gameObject.tag == "Player" && load == "Death")
+        {
+            SceneManager.LoadScene("DeathScreen");
+        }
+    }
+
 }
   
 
