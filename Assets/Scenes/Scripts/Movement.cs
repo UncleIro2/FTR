@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
 
 
     Rigidbody rb;
-    public KillPlayer killPlayer;
+    KillPlayer killPlayer;
 
 
 

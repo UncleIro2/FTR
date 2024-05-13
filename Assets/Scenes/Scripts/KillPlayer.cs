@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-    public Transform playerTransform;
-    public Transform respawnPoint;
+ 
 
 
 
