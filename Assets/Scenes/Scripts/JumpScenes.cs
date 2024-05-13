@@ -11,7 +11,13 @@ public class SceneTransition : MonoBehaviour
 {
 
     public string load;
+    private int previousSceneIndex;
 
+    void Start()
+    {
+        // Store the index of the current scene when the script starts
+        previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
     public void LoadSampleScene()
     {
 
@@ -84,12 +90,21 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene("CommingTornado");
     }
-    public void FailedPassword()
+    public void LoadFailedPassword()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.correct);
+       
         SceneManager.LoadScene("FailedPassword");
     }
+    public void LoadTutorialFireEscape()
+    {
 
+        SceneManager.LoadScene("TutorialFireEscape");
+    }
+    public void GoToPreviousScene()
+    {
+        // Load the previous scene based on its index
+        SceneManager.LoadScene(previousSceneIndex);
+    }
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player" && load == "Win")
