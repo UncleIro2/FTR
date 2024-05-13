@@ -1,26 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
+    public Transform playerTransform;
+    public Transform respawnPoint;
 
-    public int Respawn;
+
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("restart");
-            Invoke("killPlayer", 0.2f);
+
+            Invoke("Respawn", 1f);
+
+
         }
 
+
     }
 
-    void killPlayer()
+    public void Respawn()
     {
+        SceneManager.LoadScene("sampleScene");
 
-        SceneManager.LoadScene("SampleScene");
     }
+
+
 }
 

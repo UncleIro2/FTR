@@ -49,14 +49,28 @@ public class Movement : MonoBehaviour
     public float maxStamina;
     public float runCost;
     public float charegeRate;
+    private Coroutine recharge_1;
 
-    private Coroutine recharge;
+    [Header("Smoke")]
+    public GameObject smoke;
+    public float smokeDamge;
+
+    [Header("Strings")]
+    string recharge = "recharge";
+    string rundrain = "rundrain";
+    string smokedrain = "smokedrain";
 
     [Header("MISC")]
     public Transform orientation;
     public MovementState state;
 
+
+
     Rigidbody rb;
+    public KillPlayer killPlayer;
+
+
+
 
     public enum MovementState
     {
@@ -79,6 +93,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+
         //Groudn check med raycast 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -99,12 +114,34 @@ public class Movement : MonoBehaviour
         }
 
 
+
+        if (smoke != null && stamina == 0f)
+        {
+            killPlayer.Respawn();
+        }
+
+
+
     }
 
     private void FixedUpdate()
     {
         //Kalder kraft funtionen 
         MovePlayer();
+        if (state == MovementState.walking && smoke == null)
+        {
+            Stamina(recharge);
+        }
+        else
+        {
+            Stamina(rundrain);
+        }
+
+        if (smoke != null)
+        {
+            Stamina(smokedrain);
+            print("hej");
+        }
     }
 
     //Move input
@@ -164,9 +201,7 @@ public class Movement : MonoBehaviour
             state = MovementState.spritning;
             moveSpeed = sprintSpeed;
 
-            stamina -= runCost + Time.deltaTime;
-            if (stamina < 0) stamina = 0;
-            staminaBar.fillAmount = stamina / maxStamina;
+            Stamina(rundrain);
 
             if (stamina == 0)
             {
@@ -175,8 +210,6 @@ public class Movement : MonoBehaviour
 
             }
 
-            if (recharge != null) StopCoroutine(recharge);
-            recharge = StartCoroutine(rechargeStamina());
 
 
 
@@ -195,14 +228,12 @@ public class Movement : MonoBehaviour
         {
             state = MovementState.air;
 
-            stamina -= runCost + Time.deltaTime;
-            if (stamina < 0) stamina = 0;
-            staminaBar.fillAmount = stamina / maxStamina;
+            Stamina(rundrain);
 
 
-            if (recharge != null) StopCoroutine(recharge);
-            recharge = StartCoroutine(rechargeStamina());
+
         }
+
 
     }
 
@@ -289,6 +320,36 @@ public class Movement : MonoBehaviour
 
     }
 
+    void Stamina(string chargeState)
+    {
+        if (chargeState == rundrain)
+        {
+            stamina -= runCost + Time.deltaTime;
+            if (stamina < 0) stamina = 0;
+            staminaBar.fillAmount = stamina / maxStamina;
+      
+        }
+        if (chargeState == smokedrain)
+        {
+            stamina -= smokeDamge + Time.deltaTime;
+            if (stamina < 0) stamina = 0;
+            staminaBar.fillAmount = stamina / maxStamina;
+          
+        }
+        if (chargeState == recharge)
+        {
+            stamina += charegeRate / 10f;
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            staminaBar.fillAmount = stamina / maxStamina;
+         
+        }
+
+
+    }
+
     //Laver raycast når man er på slope da der en vinkel
     private bool OnSloop()
     {
@@ -307,17 +368,33 @@ public class Movement : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
-    private IEnumerator rechargeStamina()
+
+
+   
+
+    private void OnTriggerStay(Collider other)
     {
-        yield return new WaitForSeconds(1f);
-        while (stamina < maxStamina)
+        if (other.gameObject.CompareTag("Røg"))
         {
-            stamina += charegeRate / 10f;
-            if (stamina > maxStamina) stamina = maxStamina;
-            staminaBar.fillAmount = stamina / maxStamina;
-            yield return new WaitForSeconds(0.1f);
+            smoke = other.gameObject;
+            Stamina(rundrain);
+
+
         }
 
     }
+
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Røg"))
+        {
+            smoke = null; // Reset smoke GameObject to null when player exits the smoke area
+
+        }
+    }
+
+
 
 }
