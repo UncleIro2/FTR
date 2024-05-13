@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum SoundEnum
 {
-    fire = 0,
+    Background = 0,
     correct = 1,
     storm = 2,
     earthquake = 3,

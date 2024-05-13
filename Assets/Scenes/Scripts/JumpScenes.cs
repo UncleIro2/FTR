@@ -27,7 +27,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadGetReady()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.fire);
+        SoundMananger.instance.PlaySound(SoundEnum.Background);
         SceneManager.LoadScene("GetReady");
     }
     public void LoadEnterCode()
