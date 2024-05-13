@@ -12,6 +12,9 @@ public class SceneTransition : MonoBehaviour
 
     public string load;
 
+    void Start()
+    {
+    }
     public void LoadSampleScene()
     {
 
@@ -84,20 +87,30 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene("CommingTornado");
     }
-    public void FailedPassword()
+    public void LoadFailedPassword()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.correct);
+       
         SceneManager.LoadScene("FailedPassword");
     }
-
+    public void LoadTutorialFireEscape()
+    {
+        GameManager.lastLevelSceneIndex = 11;
+        SceneManager.LoadScene("TutorialFireEscape");
+    }
+    public void GoToPreviousScene()
+    {
+        SceneManager.LoadScene(GameManager.lastLevelSceneIndex);
+    }
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player" && load == "Win")
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("WinningScreen");
         }
         else if (player.gameObject.tag == "Player" && load == "Death")
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("DeathScreen");
         }
     }
