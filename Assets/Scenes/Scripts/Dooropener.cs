@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
+using static EquipScript;
 using static UnityEngine.GraphicsBuffer;
 
 public class DoorOpen : MonoBehaviour
@@ -9,37 +10,38 @@ public class DoorOpen : MonoBehaviour
     public float range = 10f;
     public Camera Camera;
     private RaycastHit hit;
+    public GameObject dør;
 
     public Dør door;
 
 
     void Update()
     {
-        Vector3 rayDoorCheck = Camera.transform.forward; // Use camera's forward direction
-        if (Physics.Raycast(Camera.transform.position, rayDoorCheck, out hit, range))
+        if (Input.GetKeyDown(KeyCode.E) && dør != null && !door.isMoving)
         {
-            if (hit.collider.CompareTag("Dør"))
-            {
-                door = hit.collider.gameObject.GetComponent<Dør>();
-
-            }
+            print(" open");
+            door.ToggleDoor();
         }
 
 
-        if (Input.GetKeyDown(KeyCode.E) && !door.isMoving)
+      
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Dør"))
         {
-
-
-            Vector3 raycastDirection = Camera.transform.forward; // Use camera's forward direction
-            if (Physics.Raycast(Camera.transform.position, raycastDirection, out hit, range))
-            {
-                if (hit.collider.CompareTag("Dør"))
-                {
-                    hit.collider.gameObject.GetComponent<Dør>().ToggleDoor();
-                }
-            }
-
+            dør = other.gameObject;
+            door = dør.GetComponent<Dør>();
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Dør"))
+        {
+            dør = null;
+            door = null;
+        }
+    }
 }

@@ -2189,7 +2189,7 @@ Transform:
   m_GameObject: {fileID: 169328494}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -16.011513, z: 39.472534}
+  m_LocalPosition: {x: 80.4, y: -16.19, z: 44.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0f7e62c511001449287adc4e33a2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3.5
+  range: 6
   Camera: {fileID: 697918248}
   door: {fileID: 2060206697}
 --- !u!114 &169328497
@@ -2273,7 +2273,7 @@ MonoBehaviour:
   runCost: 0.05
   charegeRate: 1
   smoke: {fileID: 0}
-  smokeDamge: 2.5
+  smokeDamge: 1
   orientation: {fileID: 266413394}
   state: 0
 --- !u!54 &169328499
@@ -2775,7 +2775,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9218919
+  m_Radius: 8
   m_Center: {x: -0.013225079, y: 0.7646182, z: 0.05075276}
 --- !u!114 &221330845
 MonoBehaviour:
@@ -3604,7 +3604,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9218919
+  m_Radius: 4.5
   m_Center: {x: -0.013225079, y: 0.7646182, z: 0.05075276}
 --- !u!114 &280016841
 MonoBehaviour:
@@ -6583,6 +6583,10 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8594060538526549417, guid: ac6ed741d3b71654ba0dd6df02ec7199, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -7492,7 +7496,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9218919
+  m_Radius: 5
   m_Center: {x: -0.013225079, y: 0.7646182, z: 0.05075276}
 --- !u!114 &679572901
 MonoBehaviour:
@@ -10502,7 +10506,7 @@ MonoBehaviour:
   "brandt\xE6mppeAmount": 200
   vand: 100
   maxVand: 100
-  vandCost: 0.3
+  vandCost: 0.2
   pinPulled: 0
   pin: {fileID: 803615315}
   equipScript: {fileID: 169328497}
@@ -13852,7 +13856,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 5
   m_Center: {x: -0.8755763, y: 0.35910904, z: 1.07237e-15}
 --- !u!136 &1427486942
 CapsuleCollider:
@@ -17796,7 +17800,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9218919
+  m_Radius: 5
   m_Center: {x: -0.013225079, y: 0.7646182, z: 0.05075276}
 --- !u!114 &1927028537
 MonoBehaviour:
@@ -19880,7 +19884,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9218919
+  m_Radius: 8
   m_Center: {x: -0.013225079, y: 0.7646182, z: 0.05075276}
 --- !u!114 &2138054175
 MonoBehaviour:

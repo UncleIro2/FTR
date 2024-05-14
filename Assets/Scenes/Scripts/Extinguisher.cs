@@ -8,6 +8,8 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class Extinguisher : MonoBehaviour
 {
+
+
     [Header("Brandslukker")]
     [SerializeField] private float amountExtinguishPerSecond = 1.0f;
     [SerializeField] private float brandtæmppeAmount = 1;
@@ -79,7 +81,7 @@ public class Extinguisher : MonoBehaviour
                 ps.Play();
 
 
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5f) && hit.collider.TryGetComponent(out Fire fire))
+                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 10f) && hit.collider.TryGetComponent(out Fire fire))
                 {
 
                     fire.TryExtinguish(amountExtinguishPerSecond * Time.deltaTime);
@@ -101,7 +103,7 @@ public class Extinguisher : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5f) && hit.collider.TryGetComponent(out Fire fire))
+                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 8f) && hit.collider.TryGetComponent(out Fire fire))
                 {
                    
 

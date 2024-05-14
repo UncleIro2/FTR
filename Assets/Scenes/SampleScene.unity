@@ -2589,8 +2589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb0d28ac798524e85ce5d0c993c40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1260142917}
-  respawnPoint: {fileID: 201711712}
 --- !u!135 &806849449
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3022,6 +3020,8 @@ MonoBehaviour:
   SensX: 400
   SensY: 400
   orientation: {fileID: 43457977}
+  xRotation: 0
+  yRotation: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4076,7 +4076,6 @@ MonoBehaviour:
   smokeDamge: 2.5
   orientation: {fileID: 43457977}
   state: 0
-  killPlayer: {fileID: 1290232428}
 --- !u!114 &1260142919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,6 +4116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3.5
   Camera: {fileID: 963194227}
+  "d\xF8r": {fileID: 0}
   door: {fileID: 1413591887}
 --- !u!1001 &1272804567
 PrefabInstance:
@@ -4216,8 +4216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb0d28ac798524e85ce5d0c993c40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1260142917}
-  respawnPoint: {fileID: 201711712}
 --- !u!135 &1290232429
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6220,8 +6218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb0d28ac798524e85ce5d0c993c40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1260142917}
-  respawnPoint: {fileID: 201711712}
 --- !u!135 &1895782325
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6281,6 +6277,7 @@ GameObject:
   - component: {fileID: 1924376037}
   - component: {fileID: 1924376036}
   - component: {fileID: 1924376038}
+  - component: {fileID: 1924376039}
   m_Layer: 0
   m_Name: "D\xF8r (1)"
   m_TagString: "D\xF8r"
@@ -6346,7 +6343,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6367,6 +6364,27 @@ MonoBehaviour:
   isOpen: 0
   isMoving: 0
   rotationSpeed: 2
+--- !u!135 &1924376039
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924376034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 1}
 --- !u!1 &1929993058
 GameObject:
   m_ObjectHideFlags: 0

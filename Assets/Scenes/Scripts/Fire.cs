@@ -50,7 +50,7 @@ public class Fire : MonoBehaviour
         if (currentIntersity <= 0f)
         {
 
-            Invoke("Destroy", 3f);
+            Invoke("Destroy", 2f);
             return true;
 
 
