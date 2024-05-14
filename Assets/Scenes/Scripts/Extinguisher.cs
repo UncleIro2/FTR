@@ -116,6 +116,7 @@ public class Extinguisher : MonoBehaviour
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
                     Destroy(equipScript.brandTæppe);
                     equipScript.equippedItem = EquipScript.EquippedItem.Ingenting;
+                    equipScript.brandTæppeCollider = null;
 
 
                 }
