@@ -143,7 +143,7 @@ public class Movement : MonoBehaviour
         if (smoke != null)
         {
             Stamina(smokedrain);
-            print("hej");
+            
         }
     }
 

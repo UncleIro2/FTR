@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
+using static EquipScript;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 
@@ -35,7 +36,10 @@ public class Extinguisher : MonoBehaviour
     private void Start()
     {
         ps = GetComponentInChildren<ParticleSystem>();
-        ps.Stop();
+        if (ps != null)
+        {
+            ps.Stop();
+        }
     }
 
 
@@ -84,7 +88,7 @@ public class Extinguisher : MonoBehaviour
                 Fire fire = ild.GetComponent<Fire>();
                 if (fire != null)
                 {
-                  
+
                     fire.TryExtinguish(amountExtinguishPerSecond * Time.deltaTime);
 
 
@@ -109,9 +113,9 @@ public class Extinguisher : MonoBehaviour
                 if (fire != null)
                 {
 
-
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
                     Destroy(equipScript.brandTæppe);
+                    equipScript.equippedItem = EquipScript.EquippedItem.Ingenting;
 
 
                 }

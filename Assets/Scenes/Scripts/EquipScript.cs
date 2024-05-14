@@ -113,7 +113,6 @@ public class EquipScript : MonoBehaviour
             brandTæppe.transform.rotation = brandTæppeTransform.transform.rotation;
             brandTæppe.transform.SetParent(brandTæppeTransform);
             brandTæppe.SetActive(true);
-            brandTæppeCollider.enabled = false;
             equippedItem = EquippedItem.Brandtæppe;
 
         }
@@ -135,7 +134,6 @@ public class EquipScript : MonoBehaviour
             brandTæppeRB.constraints = RigidbodyConstraints.None;
             brandTæppeTransform.DetachChildren();
             brandTæppe.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            brandTæppeCollider.enabled = true;
             equippedItem = EquippedItem.Ingenting;
         }
 
@@ -196,12 +194,9 @@ public class EquipScript : MonoBehaviour
                 if (brandTæppeTransform != null)
                 {
                     brandTæppe = brandTæppeTransform.gameObject;
-                    print(brandTæppe);
+                   
                 }
-                else
-                {
-                    Debug.LogError("Child transform at index 5 does not exist.");
-                }
+               
             }
 
 
