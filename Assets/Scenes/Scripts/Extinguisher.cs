@@ -29,7 +29,7 @@ public class Extinguisher : MonoBehaviour
     public EquipScript equipScript;
 
 
-    public GameObject fire;
+    public GameObject ild;
 
 
     private void Start()
@@ -67,24 +67,24 @@ public class Extinguisher : MonoBehaviour
         bool isEquipped = this.transform.parent != null ? this.transform.parent.gameObject.CompareTag("Player") : false;
         if (item == EquipScript.EquippedItem.BrandSlukker)
         {
-        
+
             if (Input.GetKeyDown(KeyCode.F) && !pinPulled && equipScript.brandSlukker == this.gameObject)
             {
                 pinPulled = true;
                 Pin();
             }
 
-            if (isEquipped && pinPulled && Input.GetMouseButton(0) && vand > 0)
+            if (isEquipped && pinPulled && Input.GetMouseButton(0) && vand > 0 && ild != null)
             {
                 vand -= vandCost + Time.deltaTime;
                 if (vand < 0) vand = 0;
 
                 ps.Play();
 
-
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 10f) && hit.collider.TryGetComponent(out Fire fire))
+                Fire fire = ild.GetComponent<Fire>();
+                if (fire != null)
                 {
-
+                    print("slukker");
                     fire.TryExtinguish(amountExtinguishPerSecond * Time.deltaTime);
 
 
@@ -102,19 +102,21 @@ public class Extinguisher : MonoBehaviour
         if (item == EquipScript.EquippedItem.Brandtæppe)
         {
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && ild != null)
             {
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 8f) && hit.collider.TryGetComponent(out Fire fire))
+
+                Fire fire = ild.GetComponent<Fire>();
+                if (fire != null)
                 {
-                   
+
 
                     fire.TryExtinguish(brandtæmppeAmount * Time.deltaTime);
                     Destroy(equipScript.brandTæppe);
 
 
                 }
-                
-                
+
+
             }
         }
     }
@@ -123,8 +125,8 @@ public class Extinguisher : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ild"))
         {
-            fire = other.gameObject;
-           
+            ild = other.gameObject;
+
         }
     }
 
@@ -132,8 +134,8 @@ public class Extinguisher : MonoBehaviour
     {
         if (other.CompareTag("Ild"))
         {
-            fire = null;
-           
+            ild = null;
+
         }
     }
 

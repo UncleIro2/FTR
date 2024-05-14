@@ -11,7 +11,7 @@ public class KillPlayer : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
+   /* void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -22,7 +22,7 @@ public class KillPlayer : MonoBehaviour
         }
 
 
-    }
+    }*/
 
     public void Respawn()
     {
