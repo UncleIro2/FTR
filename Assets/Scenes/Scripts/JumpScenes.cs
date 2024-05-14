@@ -98,6 +98,18 @@ public class SceneTransition : MonoBehaviour
         GameManager.lastLevelSceneIndex = 11;
         SceneManager.LoadScene("TutorialFireEscape");
     }
+    public void LoadVGAFireEscapeNEM()
+    {
+        SoundMananger.instance.StopAllSounds();
+        GameManager.lastLevelSceneIndex = 18;
+        SceneManager.LoadScene("VGAFireEscapeNEM");
+    }
+    public void LoadVGAFireEscapeSVÆR()
+    {
+        SoundMananger.instance.StopAllSounds();
+        GameManager.lastLevelSceneIndex = 19;
+        SceneManager.LoadScene("VGAFireEscapeSVÆR");
+    }
     public void GoToPreviousScene()
     {
         SceneManager.LoadScene(GameManager.lastLevelSceneIndex);

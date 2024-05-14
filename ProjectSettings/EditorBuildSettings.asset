@@ -59,5 +59,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/MediumLevels.unity
     guid: ce7dda8d3da8c0c4e862117d7e499a92
+  - enabled: 1
+    path: Assets/Scenes/Maps/VGAFireEscapeNEM.unity
+    guid: cef27ca0826c376448d6a714633d4a3c
+  - enabled: 1
+    path: "Assets/Scenes/Maps/VGAFireEscapeSV\xC6R.unity"
+    guid: ea315424a86603f40836088315c4ff69
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
