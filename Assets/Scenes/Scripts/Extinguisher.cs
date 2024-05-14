@@ -84,7 +84,7 @@ public class Extinguisher : MonoBehaviour
                 Fire fire = ild.GetComponent<Fire>();
                 if (fire != null)
                 {
-                    print("slukker");
+                  
                     fire.TryExtinguish(amountExtinguishPerSecond * Time.deltaTime);
 
 
