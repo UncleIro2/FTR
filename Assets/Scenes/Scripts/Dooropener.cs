@@ -9,7 +9,6 @@ public class DoorOpen : MonoBehaviour
 {
     public float range = 10f;
     public Camera Camera;
-    private RaycastHit hit;
     public GameObject dør;
 
     public Dør door;
@@ -19,7 +18,7 @@ public class DoorOpen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && dør != null && !door.isMoving)
         {
-            print(" open");
+        
             door.ToggleDoor();
         }
 

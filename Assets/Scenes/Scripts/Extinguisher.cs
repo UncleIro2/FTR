@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
@@ -28,7 +29,7 @@ public class Extinguisher : MonoBehaviour
     public EquipScript equipScript;
 
 
-
+    public GameObject fire;
 
 
     private void Start()
@@ -67,7 +68,7 @@ public class Extinguisher : MonoBehaviour
         if (item == EquipScript.EquippedItem.BrandSlukker)
         {
         
-            if (Input.GetKeyDown(KeyCode.P) && !pinPulled && equipScript.brandSlukker == this.gameObject)
+            if (Input.GetKeyDown(KeyCode.F) && !pinPulled && equipScript.brandSlukker == this.gameObject)
             {
                 pinPulled = true;
                 Pin();
@@ -115,6 +116,24 @@ public class Extinguisher : MonoBehaviour
                 
                 
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ild"))
+        {
+            fire = other.gameObject;
+           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ild"))
+        {
+            fire = null;
+           
         }
     }
 
