@@ -1483,7 +1483,7 @@ MonoBehaviour:
   "brandt\xE6mppeAmount": 200
   vand: 100
   maxVand: 100
-  vandCost: 1
+  vandCost: 0.1
   pinPulled: 0
   pin: {fileID: 309019456}
   equipScript: {fileID: 724066955}
@@ -4800,27 +4800,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f7700f684aa1074b82c81867b4f4f82, type: 3}
   m_PrefabInstance: {fileID: 689523423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &445117378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445117373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfdaf529932baa42b8a59f047dd4ae7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountExtinguishPerSecond: 1
-  "brandt\xE6mppeAmount": 200
-  vand: 0
-  maxVand: 0
-  vandCost: 0
-  pinPulled: 0
-  pin: {fileID: 0}
-  equipScript: {fileID: 724066955}
-  ild: {fileID: 0}
 --- !u!1 &453038116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,7 +6285,7 @@ MonoBehaviour:
   vandCost: 0
   pinPulled: 0
   pin: {fileID: 0}
-  equipScript: {fileID: 0}
+  equipScript: {fileID: 724066955}
   ild: {fileID: 0}
 --- !u!135 &594672546
 SphereCollider:
@@ -7681,9 +7660,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f7700f684aa1074b82c81867b4f4f82, type: 3}
       insertIndex: -1
       addedObject: {fileID: 445117374}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f7700f684aa1074b82c81867b4f4f82, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 445117378}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7700f684aa1074b82c81867b4f4f82, type: 3}
 --- !u!1001 &690026008
 PrefabInstance:
@@ -13402,7 +13378,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 2.5
   m_Center: {x: 0, y: 1, z: 1}
 --- !u!1 &1345063597
 GameObject:
@@ -19248,7 +19224,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 2.5
   m_Center: {x: 0, y: 1, z: 1}
 --- !u!1 &2067745791
 GameObject:

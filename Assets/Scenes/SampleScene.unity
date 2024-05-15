@@ -6397,8 +6397,8 @@ GameObject:
   - component: {fileID: 1924376035}
   - component: {fileID: 1924376037}
   - component: {fileID: 1924376036}
-  - component: {fileID: 1924376038}
   - component: {fileID: 1924376039}
+  - component: {fileID: 1924376038}
   - component: {fileID: 1924376040}
   m_Layer: 0
   m_Name: "D\xF8r (1)"
