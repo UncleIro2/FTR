@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
 
         if (smoke != null && stamina == 0f)
         {
-            SceneManager.LoadScene("DeathScreen");
+            SceneManager.LoadScene("DeathScreenRøg");
 
         }
 

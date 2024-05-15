@@ -78,6 +78,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/DeathScreenStairs.unity
     guid: 547db988f7aaa90419889d99384653ee
   - enabled: 1
+    path: "Assets/Scenes/UI/DeathScreenR\xF8g.unity"
+    guid: baffd1e90cc2e5944a9dd0444fc872eb
+  - enabled: 1
     path: Assets/Scenes/UI/Nykommersnart.unity
     guid: 8120d8d17fc5fe042a37ac6c6b47b082
   m_configObjects: {}

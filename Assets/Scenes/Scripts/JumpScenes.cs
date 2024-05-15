@@ -180,7 +180,6 @@ public class SceneTransition : MonoBehaviour
             SceneManager.LoadScene("DeathScreenStairs");
         }
     }
-
 }
 
 
