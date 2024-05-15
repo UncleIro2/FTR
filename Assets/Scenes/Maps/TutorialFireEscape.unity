@@ -8120,8 +8120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bdcd95d669c7c4e82b3d515f6c9dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wlakSpeed: 15
-  sprintSpeed: 24
+  wlakSpeed: 5
+  sprintSpeed: 8
   groundDrag: 5
   jumpForce: 6
   jumpCooldown: 1
@@ -8138,8 +8138,8 @@ MonoBehaviour:
     m_Bits: 8
   maxSlopeAngle: 90
   staminaBar: {fileID: 1909728861}
-  stamina: 300
-  maxStamina: 300
+  stamina: 100
+  maxStamina: 100
   runCost: 0.05
   charegeRate: 1
   smoke: {fileID: 0}
