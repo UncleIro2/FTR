@@ -43,7 +43,7 @@ public class Dør : MonoBehaviour
 
 
 
-        // Ensure the door reaches the exact target rotation
+      
         this.transform.rotation = targetRotation;
     }
 
