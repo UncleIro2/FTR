@@ -25,36 +25,40 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadSampleScene()
     {
-
+        GameManager.lastLevelSceneIndex = 12;
         SceneManager.LoadScene("SampleScene");
     }
     public void LoadGuidlines()
     {
-
+        GameManager.lastLevelSceneIndex = 1;
         SceneManager.LoadScene("Guidlines");
     }
     public void LoadGetReady()
     {
+        GameManager.lastLevelSceneIndex = 3;
         SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("GetReady");
     }
     public void LoadEnterCode()
     {
-
+        GameManager.lastLevelSceneIndex = 2;
         SceneManager.LoadScene("EnterCode");
     }
     public void LoadDifficulty()
     {
+        GameManager.lastLevelSceneIndex = 4;
         SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("Difficulty");
     }
     public void LoadStart()
     {
+        GameManager.lastLevelSceneIndex = 0;
         SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("Start");
     }
     public void LoadVestskovenConfirmed()
     {
+        GameManager.lastLevelSceneIndex = 5;
         SoundMananger.instance.PlaySound(SoundEnum.correct);
         SceneManager.LoadScene("VestskovenConfirmed");
     }
@@ -65,6 +69,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadCommingWater()
     {
+        GameManager.lastLevelSceneIndex = 7;
         SoundMananger.instance.PlaySound(SoundEnum.wave);
         SceneManager.LoadScene("CommingWater");
     }
@@ -85,12 +90,14 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadCommingEarth()
     {
+        GameManager.lastLevelSceneIndex = 9;
         SoundMananger.instance.PlaySound(SoundEnum.earthquake);
 
         SceneManager.LoadScene("CommingEarth");
     }
     public void LoadCommingTornado()
     {
+        GameManager.lastLevelSceneIndex = 8;
         SoundMananger.instance.PlaySound(SoundEnum.storm);
 
         SceneManager.LoadScene("CommingTornado");
@@ -101,12 +108,12 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadFailedPassword()
     {
-
+        GameManager.lastLevelSceneIndex = 10;
         SceneManager.LoadScene("FailedPassword");
     }
     public void LoadKommerSnart()
     {
-
+        GameManager.lastLevelSceneIndex = 20;
         SceneManager.LoadScene("KommerSnart");
     }
     public void LoadDeathScreenElevator()
