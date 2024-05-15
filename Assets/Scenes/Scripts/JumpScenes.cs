@@ -20,6 +20,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("QUITmenu");
         }
     }
@@ -115,6 +116,11 @@ public class SceneTransition : MonoBehaviour
     {
         GameManager.lastLevelSceneIndex = 20;
         SceneManager.LoadScene("KommerSnart");
+    }
+    public void LoadNyKommerSnart()
+    {
+        GameManager.lastLevelSceneIndex = 24;
+        SceneManager.LoadScene("NyKommerSnart");
     }
     public void LoadDeathScreenElevator()
     {
