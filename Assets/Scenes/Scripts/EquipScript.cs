@@ -95,9 +95,8 @@ public class EquipScript : MonoBehaviour
 
         }
 
-        if (brandTæppeRør != null && equippedItem == EquippedItem.Ingenting)
+        if (brandTæppeRør != null && equippedItem == EquippedItem.Ingenting && brandTæppe != null)
         {
-
             brandTæppe.SetActive(true);
           
 
