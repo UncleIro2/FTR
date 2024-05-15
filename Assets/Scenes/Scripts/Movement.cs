@@ -119,6 +119,7 @@ public class Movement : MonoBehaviour
 
         if (smoke != null && stamina == 0f)
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("DeathScreenRøg");
 
         }

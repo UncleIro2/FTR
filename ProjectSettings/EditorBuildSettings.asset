@@ -42,9 +42,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Maps/TutorialFireEscape.unity
     guid: 8785436cf660bba41ba66a4dbb671db8
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/UI/WinningScreen.unity
     guid: a4c772d431f45ac43901bb6600667fff
   - enabled: 1
@@ -78,10 +75,10 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/DeathScreenStairs.unity
     guid: 547db988f7aaa90419889d99384653ee
   - enabled: 1
-    path: "Assets/Scenes/UI/DeathScreenR\xF8g.unity"
-    guid: baffd1e90cc2e5944a9dd0444fc872eb
-  - enabled: 1
     path: Assets/Scenes/UI/Nykommersnart.unity
     guid: 8120d8d17fc5fe042a37ac6c6b47b082
+  - enabled: 1
+    path: "Assets/Scenes/UI/DeathScreenR\xF8g.unity"
+    guid: baffd1e90cc2e5944a9dd0444fc872eb
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

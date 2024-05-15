@@ -24,11 +24,7 @@ public class SceneTransition : MonoBehaviour
             SceneManager.LoadScene("QUITmenu");
         }
     }
-    public void LoadSampleScene()
-    {
-        GameManager.lastLevelSceneIndex = 12;
-        SceneManager.LoadScene("SampleScene");
-    }
+  
     public void LoadGuidlines()
     {
         GameManager.lastLevelSceneIndex = 1;
@@ -76,17 +72,17 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadMediumLevels()
     {
-        GameManager.lastLevelSceneIndex = 17;
+        GameManager.lastLevelSceneIndex = 16;
         SceneManager.LoadScene("MediumLevels");
     }
     public void LoadHardLevels()
     {
-        GameManager.lastLevelSceneIndex = 15;
+        GameManager.lastLevelSceneIndex = 14;
         SceneManager.LoadScene("HardLevels");
     }
     public void LoadEasyLevels()
     {
-        GameManager.lastLevelSceneIndex = 14;
+        GameManager.lastLevelSceneIndex = 13;
         SceneManager.LoadScene("EasyLevels");
     }
     public void LoadCommingEarth()
@@ -114,23 +110,29 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadKommerSnart()
     {
-        GameManager.lastLevelSceneIndex = 20;
+        GameManager.lastLevelSceneIndex = 19;
         SceneManager.LoadScene("KommerSnart");
     }
     public void LoadNyKommerSnart()
     {
-        GameManager.lastLevelSceneIndex = 24;
+        GameManager.lastLevelSceneIndex = 23;
         SceneManager.LoadScene("NyKommerSnart");
     }
     public void LoadDeathScreenElevator()
     {
-        GameManager.lastLevelSceneIndex = 22;
+        GameManager.lastLevelSceneIndex = 21;
         SceneManager.LoadScene("DeathScreenElevator");
     }
     public void LoadDeathScreenStairs()
     {
-        GameManager.lastLevelSceneIndex = 23;
+        GameManager.lastLevelSceneIndex = 22;
         SceneManager.LoadScene("DeathSceenStairs");
+    }
+    public void LoadDeathScreenRøg()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        GameManager.lastLevelSceneIndex = 24;
+        SceneManager.LoadScene("DeathSceenRøg");
     }
 
     public void LoadTutorialFireEscape()
@@ -142,13 +144,13 @@ public class SceneTransition : MonoBehaviour
     public void LoadVGAFireEscapeNEM()
     {
         SoundMananger.instance.StopAllSounds();
-        GameManager.lastLevelSceneIndex = 18;
+        GameManager.lastLevelSceneIndex = 17;
         SceneManager.LoadScene("VGAFireEscapeNEM");
     }
     public void LoadVGAFireEscapeSVÆR()
     {
         SoundMananger.instance.StopAllSounds();
-        GameManager.lastLevelSceneIndex = 19;
+        GameManager.lastLevelSceneIndex = 18;
         SceneManager.LoadScene("VGAFireEscapeSVÆR");
     }
     public void GoToPreviousScene()
@@ -178,6 +180,11 @@ public class SceneTransition : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("DeathScreenStairs");
+        }
+        if (player.gameObject.tag == "Player" && load == "DeathScreenRøg")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene("DeathScreenRøg");
         }
     }
 }
