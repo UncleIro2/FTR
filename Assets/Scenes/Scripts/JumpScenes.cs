@@ -97,17 +97,27 @@ public class SceneTransition : MonoBehaviour
     }
     public void ApplicationQuit()
     {
-        Application.Quit(); 
+        Application.Quit();
     }
     public void LoadFailedPassword()
     {
-       
+
         SceneManager.LoadScene("FailedPassword");
     }
     public void LoadKommerSnart()
     {
 
         SceneManager.LoadScene("KommerSnart");
+    }
+    public void LoadDeathScreenElevator()
+    {
+        GameManager.lastLevelSceneIndex = 22;
+        SceneManager.LoadScene("DeathScreenElevator");
+    }
+    public void LoadDeathScreenStairs()
+    {
+        GameManager.lastLevelSceneIndex = 23;
+        SceneManager.LoadScene("DeathSceenStairs");
     }
 
     public void LoadTutorialFireEscape()
@@ -139,14 +149,26 @@ public class SceneTransition : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("WinningScreen");
         }
-        else if (player.gameObject.tag == "Player" && load == "Death")
+        if (player.gameObject.tag == "Player" && load == "DeathScreenIld")
         {
             Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("DeathScreen");
+            SceneManager.LoadScene("DeathScreenIld");
+        }
+
+        if (player.gameObject.tag == "Player" && load == "DeathScreenElevator")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene("DeathScreenElevator");
+        }
+
+        if (player.gameObject.tag == "Player" && load == "DeathScreenStairs")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene("DeathScreenStairs");
         }
     }
 
 }
-  
+
 
 
