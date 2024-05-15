@@ -68,5 +68,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/KommerSnart.unity
     guid: 335f4dc1483539e40a68ccafd9d22fbd
+  - enabled: 1
+    path: Assets/Scenes/UI/QUITmenu.unity
+    guid: a7d714a080350ea4bbd3e03d3293b0ac
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

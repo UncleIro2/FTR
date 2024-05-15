@@ -15,6 +15,14 @@ public class SceneTransition : MonoBehaviour
     void Start()
     {
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("QUITmenu");
+        }
+    }
     public void LoadSampleScene()
     {
 
@@ -42,7 +50,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadStart()
     {
-
+        SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("Start");
     }
     public void LoadVestskovenConfirmed()
@@ -87,6 +95,10 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene("CommingTornado");
     }
+    public void ApplicationQuit()
+    {
+        Application.Quit(); 
+    }
     public void LoadFailedPassword()
     {
        
@@ -97,6 +109,7 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene("KommerSnart");
     }
+
     public void LoadTutorialFireEscape()
     {
         SoundMananger.instance.StopAllSounds();
