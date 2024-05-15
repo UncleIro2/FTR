@@ -14,6 +14,7 @@ public enum SoundEnum
     Firealarm = 5,
     Nødsituation = 6,
     wave = 7,
+    Background = 8,
 }
 
 //SoundMananger.instance.PlaySound(SoundEnum.fire);

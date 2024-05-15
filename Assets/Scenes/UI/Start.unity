@@ -214,6 +214,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 704405538}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: Stopsound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &205006405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +360,8 @@ GameObject:
   - component: {fileID: 704405534}
   - component: {fileID: 704405533}
   - component: {fileID: 704405536}
+  - component: {fileID: 704405538}
+  - component: {fileID: 704405539}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -418,6 +432,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   load: 
+--- !u!114 &704405538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704405532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8c92bfc5a0b3147ab377d35a45fd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &704405539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704405532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517624f6d464cd848a4cd3e90462c282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &744147003
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +747,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 704405538}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: Stopsound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971511189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +985,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 704405538}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: Stopsound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1561269082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,6 +1129,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 704405538}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: Stopsound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1878043282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1218,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b247c3f5857d6a843950eada7b665e32, type: 3}
   - {fileID: 8300000, guid: a01959d828343f44892cf401bafd031e, type: 3}
   - {fileID: 8300000, guid: 119d89075c216cc419998d17d05b0bf0, type: 3}
+  - {fileID: 8300000, guid: 31a5d2b919f5b5c4d8244b2cf2f4c828, type: 3}
 --- !u!4 &2129857664
 Transform:
   m_ObjectHideFlags: 0

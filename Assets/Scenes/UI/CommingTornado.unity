@@ -203,9 +203,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1107626448}
-        m_TargetAssemblyTypeName: SoundMananger, Assembly-CSharp
-        m_MethodName: StopAllSounds
+      - m_Target: {fileID: 1107626447}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -215,9 +215,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1107626447}
-        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: LoadStart
+      - m_Target: {fileID: 1107626449}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: Stopsound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -692,6 +692,8 @@ GameObject:
   - component: {fileID: 1107626444}
   - component: {fileID: 1107626447}
   - component: {fileID: 1107626448}
+  - component: {fileID: 1107626449}
+  - component: {fileID: 1107626450}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -761,6 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74075108a581b54c862fd7cae999c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  load: 
 --- !u!114 &1107626448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +777,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundLib: []
+--- !u!114 &1107626449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107626443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8c92bfc5a0b3147ab377d35a45fd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1107626450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107626443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8935f465cd87e43b7341d6239109f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1911993235
 GameObject:
   m_ObjectHideFlags: 0
