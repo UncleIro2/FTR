@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 1810152048}
   - component: {fileID: 1810152047}
   m_Layer: 5
-  m_Name: Play Public
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

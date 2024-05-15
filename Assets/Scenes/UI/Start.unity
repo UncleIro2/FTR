@@ -1136,12 +1136,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundLib:
-  - {fileID: 8300000, guid: 31a5d2b919f5b5c4d8244b2cf2f4c828, type: 3}
+  - {fileID: 8300000, guid: ab8bcfa377c3c6a4ab0f62e19985c4a6, type: 3}
   - {fileID: 8300000, guid: 3c326bd85a5189d4ba83fe225ae81433, type: 3}
   - {fileID: 8300000, guid: ad104ac100fd2884494566ec7e1f6f04, type: 3}
   - {fileID: 8300000, guid: e6b52b0c982d5fb47bad8caa2fd39840, type: 3}
   - {fileID: 8300000, guid: 0ea56594753727e4ca5034e408ba690c, type: 3}
+  - {fileID: 8300000, guid: b247c3f5857d6a843950eada7b665e32, type: 3}
   - {fileID: 8300000, guid: a01959d828343f44892cf401bafd031e, type: 3}
+  - {fileID: 8300000, guid: 119d89075c216cc419998d17d05b0bf0, type: 3}
 --- !u!4 &2129857664
 Transform:
   m_ObjectHideFlags: 0

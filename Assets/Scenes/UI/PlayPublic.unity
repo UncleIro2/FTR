@@ -308,7 +308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 307935728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661674136}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &307935728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +441,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 385972383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661674136}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &385972383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629903246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661674136}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &629903246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74075108a581b54c862fd7cae999c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  load: 
 --- !u!114 &661674137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +789,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 754920674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661674136}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &754920674
 MonoBehaviour:
   m_ObjectHideFlags: 0

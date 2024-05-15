@@ -65,5 +65,8 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Maps/VGAFireEscapeSV\xC6R.unity"
     guid: ea315424a86603f40836088315c4ff69
+  - enabled: 1
+    path: Assets/Scenes/UI/KommerSnart.unity
+    guid: 335f4dc1483539e40a68ccafd9d22fbd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

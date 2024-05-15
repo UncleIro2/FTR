@@ -664,7 +664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 331249207}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 177386600}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &331249207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2370,7 +2382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1559920104}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 177386600}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1559920104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3344,7 +3368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912740319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 177386600}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadKommerSnart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912740319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,5 +3920,5 @@ SceneRoots:
   - {fileID: 1787789108}
   - {fileID: 453974843}
   - {fileID: 462405227}
-  - {fileID: 177386599}
   - {fileID: 603253760}
+  - {fileID: 177386599}

@@ -27,7 +27,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadGetReady()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.Background);
+        SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("GetReady");
     }
     public void LoadEnterCode()
@@ -37,7 +37,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadDifficulty()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.Background);
+        SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
         SceneManager.LoadScene("Difficulty");
     }
     public void LoadStart()
@@ -52,27 +52,27 @@ public class SceneTransition : MonoBehaviour
     }
     public void LoadPlayPublic()
     {
-
+        GameManager.lastLevelSceneIndex = 6;
         SceneManager.LoadScene("PlayPublic");
     }
     public void LoadCommingWater()
     {
-
+        SoundMananger.instance.PlaySound(SoundEnum.wave);
         SceneManager.LoadScene("CommingWater");
     }
     public void LoadMediumLevels()
     {
-
+        GameManager.lastLevelSceneIndex = 17;
         SceneManager.LoadScene("MediumLevels");
     }
     public void LoadHardLevels()
     {
-
+        GameManager.lastLevelSceneIndex = 15;
         SceneManager.LoadScene("HardLevels");
     }
     public void LoadEasyLevels()
     {
-
+        GameManager.lastLevelSceneIndex = 14;
         SceneManager.LoadScene("EasyLevels");
     }
     public void LoadCommingEarth()
@@ -91,6 +91,11 @@ public class SceneTransition : MonoBehaviour
     {
        
         SceneManager.LoadScene("FailedPassword");
+    }
+    public void LoadKommerSnart()
+    {
+
+        SceneManager.LoadScene("KommerSnart");
     }
     public void LoadTutorialFireEscape()
     {

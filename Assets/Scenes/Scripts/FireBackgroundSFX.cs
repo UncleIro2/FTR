@@ -7,7 +7,7 @@ public class FireBackgroundSFX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundMananger.instance.PlaySound(SoundEnum.Background);
+        SoundMananger.instance.PlaySound(SoundEnum.Fireplace);
     }
 
 }

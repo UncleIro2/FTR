@@ -6,14 +6,14 @@ using UnityEngine;
 
 public enum SoundEnum
 {
-    Background = 0,
+    Fireplace = 0,
     correct = 1,
     storm = 2,
     earthquake = 3,
     bip = 4,
     Firealarm = 5,
-    Nødsituation = 6
-    
+    Nødsituation = 6,
+    wave = 7,
 }
 
 //SoundMananger.instance.PlaySound(SoundEnum.fire);
