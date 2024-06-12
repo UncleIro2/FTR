@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 757b5125037d5f74596c24caa1134e15
+timeCreated: 1498054972
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97669
+  packageName: Simple Cars Pack
+  packageVersion: 1.1
+  assetPath: Assets/Simple Vehicle Pack/Prefabs/Mobile/Taxi.prefab
+  uploadId: 296029
